@@ -1,0 +1,4289 @@
+/* =========================================================
+RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background: #070707;
+    color: #b8bcc5;
+    overflow-x: hidden;
+}
+
+/* =========================================================
+FUNDO GERAL
+========================================================= */
+
+body {
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(0, 136, 255, 0.10),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 70%,
+            rgba(0, 136, 255, 0.07),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #030303,
+            #0d0d0d,
+            #181818,
+            #080808
+        );
+}
+
+/* =========================================================
+HEADER
+========================================================= */
+
+header {
+    min-height: 100px;
+
+    padding: 20px 5%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 30px;
+
+    background: rgba(5, 5, 5, 0.94);
+
+    border-bottom: 1px solid rgba(225, 232, 238, 0.25);
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.7);
+
+    backdrop-filter: blur(15px);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+
+    animation: headerEntrada 0.8s ease;
+}
+
+/* =========================================================
+LOGO
+========================================================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-simbolo {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    color: #ffffff;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    background:
+        linear-gradient(
+            135deg,
+            #006dcc,
+            #159cff
+        );
+
+    box-shadow:
+        0 0 25px rgba(159, 173, 184, 0.3);
+
+    animation:
+        flutuar 3s ease-in-out infinite;
+}
+
+.logo h1 {
+    font-size: 24px;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+.logo p {
+    color: #777777;
+    font-size: 13px;
+}
+
+/* =========================================================
+HEADER SEM LOGO
+========================================================= */
+
+header > h1 {
+    color: #a0c9c9;
+
+    font-size: 24px;
+
+    line-height: 1.2;
+
+    text-shadow:
+        0 0 20px #6e879c26;
+}
+
+header > p {
+    color: #777777;
+    font-size: 13px;
+}
+
+/* =========================================================
+MENU
+========================================================= */
+
+nav ul {
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #cccccc;
+
+    text-decoration: none;
+
+    display: block;
+
+    padding: 10px 15px;
+
+    border-radius: 25px;
+
+    font-weight: bold;
+
+    position: relative;
+
+    transition: 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 4px;
+    left: 50%;
+
+    width: 0;
+    height: 2px;
+
+    background: #159cff;
+
+    transform: translateX(-50%);
+
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffffff;
+
+    background:
+        rgba(0, 130, 255, 0.1);
+
+    transform:
+        translateY(-3px);
+}
+
+nav a:hover::after {
+    width: 60%;
+}
+
+/* =========================================================
+MAIN
+========================================================= */
+
+main {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 50px auto;
+}
+
+/* =========================================================
+HERO - PÁGINA INICIAL
+========================================================= */
+
+.home-hero {
+    min-height: 620px;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    padding: 60px;
+
+    border-radius: 28px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(204, 191, 191, 0.7),
+            rgba(0,0,0,.45),
+            rgba(0,0,0,.20)
+        ),
+        url("img9.jpg");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    box-shadow: 0 30px 80px rgba(0,0,0,.8);
+
+    animation: entradaHero 1s ease;
+}
+
+.home-hero::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 5px;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            #008cff,
+            #ffffff,
+            #008cff
+        );
+
+    box-shadow:
+        0 0 25px #008cff;
+
+    animation:
+        brilho 3s infinite alternate;
+}
+
+.home-hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    right: -180px;
+    bottom: -200px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 140, 255, 0.17);
+
+    filter: blur(70px);
+
+    animation:
+        luzBanner 6s infinite alternate ease-in-out;
+}
+
+.hero-conteudo {
+    max-width: 780px;
+
+    position: relative;
+
+    z-index: 5;
+
+    animation:
+        textoEntrada 1.2s ease;
+}
+
+.hero-tag {
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    color: #32adff;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    border:
+        1px solid rgba(50, 173, 255, 0.35);
+
+    border-radius: 30px;
+
+    background:
+        rgba(0, 100, 180, 0.08);
+}
+
+.hero-conteudo h2 {
+    color: #ffffff;
+
+    font-size: 64px;
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    margin: 20px 0;
+}
+
+.hero-conteudo h2 span {
+    color: #159cff;
+
+    text-shadow:
+        0 0 30px rgba(21, 156, 255, 0.35);
+}
+
+.hero-conteudo p {
+    max-width: 650px;
+
+    color: #cccccc;
+
+    font-size: 20px;
+
+    margin-bottom: 30px;
+}
+
+/* =========================================================
+BOTÕES
+========================================================= */
+
+.hero-botoes {
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.botao-hero,
+.botao-secundario {
+    display: inline-block;
+
+    padding: 14px 24px;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.35s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.botao-hero {
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #006dcc,
+            #159cff
+        );
+
+    box-shadow:
+        0 10px 30px rgba(0, 130, 255, 0.35);
+}
+
+.botao-secundario {
+    color: #ffffff;
+
+    border:
+        1px solid #444444;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+}
+
+.botao-hero:hover,
+.botao-secundario:hover {
+    transform:
+        translateY(-5px) scale(1.03);
+}
+
+.botao-hero:hover {
+    box-shadow:
+        0 15px 40px rgba(0, 150, 255, 0.5);
+}
+
+.botao-secundario:hover {
+    border-color: #159cff;
+
+    background:
+        rgba(0, 130, 255, 0.1);
+}
+
+/* =========================================================
+BOTÃO PADRÃO PARA TODAS AS PÁGINAS
+========================================================= */
+
+.botao {
+    display: inline-block;
+
+    padding: 14px 26px;
+
+    margin-top: 20px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-weight: bold;
+    font-size: 15px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #006dcc,
+            #159cff
+        );
+
+    border:
+        1px solid rgba(21, 156, 255, 0.4);
+
+    box-shadow:
+        0 10px 30px rgba(0, 130, 255, 0.25);
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+.botao::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.18),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: 0.6s ease;
+}
+
+.botao:hover {
+    color: #06f5e9;
+
+    transform:
+        translateY(-5px)
+        scale(1.03);
+
+    box-shadow:
+        0 15px 40px rgba(0, 150, 255, 0.5);
+
+    background:
+        linear-gradient(
+            135deg,
+            #008cff,
+            #32adff
+        );
+}
+
+.botao:hover::before {
+    left: 130%;
+}
+
+.botao:active {
+    transform:
+        translateY(-1px)
+        scale(0.98);
+}
+
+.botao:focus {
+    outline: 2px solid #159cff;
+
+    outline-offset: 4px;
+}
+
+/* =========================================================
+CÍRCULOS DECORATIVOS
+========================================================= */
+
+.circulo {
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.circulo-1 {
+    width: 180px;
+    height: 180px;
+
+    right: 10%;
+    top: 15%;
+
+    border:
+        1px solid rgba(0, 150, 255, 0.25);
+
+    animation:
+        girar 15s linear infinite;
+}
+
+.circulo-2 {
+    width: 280px;
+    height: 280px;
+
+    right: -80px;
+    top: 30%;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    animation:
+        girar 20s linear infinite reverse;
+}
+
+.linha-decorativa {
+    position: absolute;
+
+    width: 200px;
+    height: 1px;
+
+    background: #159cff;
+
+    right: 12%;
+    top: 50%;
+
+    box-shadow:
+        0 0 15px #159cff;
+
+    animation:
+        linha 3s infinite alternate;
+}
+
+/* =========================================================
+INDICADORES
+========================================================= */
+
+.indicadores {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin: 30px 0;
+}
+
+.indicador {
+    padding: 30px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111111,
+            #1b1b1b
+        );
+
+    border:
+        1px solid #303030;
+
+    transition: 0.35s ease;
+}
+
+.indicador:hover {
+    transform:
+        translateY(-8px);
+
+    border-color:
+        #008cff;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0, 130, 255, 0.15);
+}
+
+.indicador-numero {
+    color: #159cff;
+
+    font-size: 28px;
+
+    font-weight: bold;
+}
+
+.indicador h3 {
+    color: #ffffff;
+
+    margin: 8px 0;
+}
+
+.indicador p {
+    color: #888888;
+}
+
+/* =========================================================
+SEÇÕES HOME
+========================================================= */
+
+.home-secao,
+.home-tecnico,
+.home-diferenciais,
+.home-final {
+    margin-bottom: 30px;
+
+    padding: 45px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #141414,
+            #222222
+        );
+
+    border:
+        1px solid #303030;
+
+    box-shadow:
+        0 15px 45px
+        rgba(0, 0, 0, 0.5);
+
+    transition: 0.4s ease;
+}
+
+.home-secao:hover,
+.home-tecnico:hover {
+    transform:
+        translateY(-7px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.7);
+}
+
+/* =========================================================
+EMTI
+========================================================= */
+
+.home-secao {
+    display: flex;
+
+    gap: 30px;
+
+    border-left:
+        4px solid #008cff;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.numero {
+    color: #159cff;
+
+    font-size: 50px;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 0 20px
+        rgba(21, 156, 255, 0.3);
+}
+
+.mini-titulo {
+    color: #159cff;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+.secao-texto h2,
+.tecnico-texto h2 {
+    color: #ffffff;
+
+    font-size: 34px;
+
+    margin:
+        10px 0 15px;
+}
+
+.secao-texto p,
+.tecnico-texto p {
+    color: #aaaaaa;
+
+    margin-bottom: 12px;
+}
+
+/* =========================================================
+TÉCNICO - HOME
+========================================================= */
+
+.home-tecnico {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    border-left:
+        4px solid #008cff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b1218,
+            #191919
+        );
+}
+
+.tecnico-texto {
+    max-width: 700px;
+}
+
+.codigo-box {
+    min-width: 270px;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    background: #080808;
+
+    border:
+        1px solid #17496d;
+
+    color: #ffffff;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size: 18px;
+
+    line-height: 2;
+
+    box-shadow:
+        0 0 35px
+        rgba(0, 120, 255, 0.12);
+
+    animation:
+        flutuar 3s
+        ease-in-out
+        infinite;
+}
+
+.codigo-azul {
+    color: #159cff;
+}
+
+.cursor {
+    display: inline-block;
+
+    color: #159cff;
+
+    animation:
+        piscar 1s infinite;
+}
+
+/* =========================================================
+DIFERENCIAIS
+========================================================= */
+
+.home-diferenciais {
+    text-align: center;
+}
+
+.titulo-centro {
+    margin-bottom: 35px;
+}
+
+.titulo-centro h2 {
+    color: #ffffff;
+
+    font-size: 35px;
+
+    margin: 10px 0;
+}
+
+.titulo-centro p {
+    color: #888888;
+}
+
+.home-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+    text-align: left;
+}
+
+.card {
+    padding: 30px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #101010,
+            #1c1c1c
+        );
+
+    border:
+        1px solid #303030;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: 0.4s ease;
+}
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #006dcc,
+            #159cff
+        );
+
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        left;
+
+    transition: 0.4s ease;
+}
+
+.card:hover {
+    transform:
+        translateY(-12px);
+
+    border-color:
+        #0875c1;
+
+    box-shadow:
+        0 20px 45px
+        rgba(0, 130, 255, 0.15);
+}
+
+.card:hover::before {
+    transform:
+        scaleX(1);
+}
+
+.card-icon {
+    font-size: 42px;
+
+    margin-bottom: 15px;
+
+    transition: 0.4s ease;
+}
+
+.card:hover .card-icon {
+    transform:
+        scale(1.2)
+        rotate(-5deg);
+}
+
+.card h3 {
+    color: #ffffff;
+
+    font-size: 21px;
+
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #888888;
+}
+
+/* =========================================================
+CHAMADA FINAL
+========================================================= */
+
+.home-final {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #090909,
+            #202020
+        );
+
+    border:
+        1px solid #333333;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.home-final::before {
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 2px;
+
+    top: 0;
+
+    left: -100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #159cff,
+            transparent
+        );
+
+    animation:
+        passarLinha 4s infinite;
+}
+
+.home-final h2 {
+    color: #ffffff;
+
+    font-size: 40px;
+
+    margin: 10px 0;
+}
+
+.home-final h2 span {
+    color: #159cff;
+}
+
+/* =========================================================
+PÁGINA HISTÓRIA
+========================================================= */
+
+.introducao {
+    position: relative;
+
+    text-align: center;
+
+    padding: 70px 30px 55px;
+
+    margin-bottom: 30px;
+
+    border-radius: 25px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0, 140, 255, 0.12),
+            transparent 55%
+        ),
+        linear-gradient(
+            135deg,
+            #0b0b0b,
+            #171717
+        );
+
+    border:
+        1px solid rgba(0, 145, 255, 0.18);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.55);
+
+    overflow: hidden;
+
+    animation:
+        historiaEntrada 0.9s ease forwards;
+}
+
+.introducao::before {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    top: -150px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 140, 255, 0.18);
+
+    filter: blur(70px);
+
+    pointer-events: none;
+}
+
+.introducao::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    width: 0;
+    height: 3px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #008cff,
+            #ffffff,
+            #008cff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 20px #008cff;
+
+    animation:
+        linhaIntroducao 1.5s ease forwards;
+}
+
+.introducao h2 {
+    position: relative;
+
+    z-index: 2;
+
+    color: #ffffff;
+
+    font-size: 48px;
+
+    margin-bottom: 15px;
+
+    letter-spacing: -1px;
+
+    text-shadow:
+        0 0 25px rgba(0, 140, 255, 0.25);
+}
+
+.introducao h2::first-letter {
+    color: #159cff;
+}
+
+.introducao p {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 750px;
+
+    margin: 0 auto;
+
+    color: #999999;
+
+    font-size: 18px;
+}
+
+/* =========================================================
+HISTÓRIA
+========================================================= */
+
+.historia {
+    position: relative;
+
+    padding: 20px 0 30px;
+}
+
+.historia::before {
+    content: "";
+
+    position: absolute;
+
+    left: 34px;
+    top: 30px;
+    bottom: 30px;
+
+    width: 2px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #008cff 8%,
+            #159cff 50%,
+            #008cff 92%,
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px rgba(0, 140, 255, 0.5);
+
+    animation:
+        linhaHistoria 2s ease forwards;
+}
+
+.bloco-historia {
+    position: relative;
+
+    display: flex;
+
+    gap: 30px;
+
+    margin-bottom: 25px;
+
+    padding: 35px 40px 35px 25px;
+
+    margin-left: 10px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #101010,
+            #1b1b1b
+        );
+
+    border:
+        1px solid #292929;
+
+    border-left:
+        3px solid #008cff;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.45);
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    animation:
+        blocoEntrada 0.8s ease forwards;
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        background 0.4s ease;
+}
+
+.bloco-historia:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.bloco-historia:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.bloco-historia:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.bloco-historia:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.bloco-historia:nth-child(5) {
+    animation-delay: 1s;
+}
+
+.bloco-historia::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(21, 156, 255, 0.06),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        0.7s ease;
+}
+
+.bloco-historia:hover::before {
+    left: 130%;
+}
+
+.bloco-historia:hover {
+    transform:
+        translateX(8px)
+        translateY(-4px);
+
+    border-color:
+        rgba(0, 140, 255, 0.45);
+
+    border-left-color:
+        #159cff;
+
+    background:
+        linear-gradient(
+            145deg,
+            #101820,
+            #1b1b1b
+        );
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 130, 255, 0.13);
+}
+
+.bloco-historia .numero {
+    position: relative;
+
+    flex-shrink: 0;
+
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #ffffff;
+
+    font-size: 19px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #005ca8,
+            #159cff
+        );
+
+    border:
+        3px solid #0b0b0b;
+
+    box-shadow:
+        0 0 0 2px #008cff,
+        0 0 25px rgba(0, 140, 255, 0.4);
+
+    z-index: 5;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.bloco-historia:hover .numero {
+    transform:
+        rotate(8deg)
+        scale(1.12);
+
+    box-shadow:
+        0 0 0 2px #159cff,
+        0 0 35px rgba(0, 150, 255, 0.75);
+}
+
+.bloco-historia h2 {
+    color: #ffffff;
+
+    font-size: 28px;
+
+    margin-bottom: 15px;
+
+    line-height: 1.2;
+
+    transition:
+        color 0.3s ease;
+}
+
+.bloco-historia:hover h2 {
+    color: #159cff;
+}
+
+.bloco-historia p {
+    color: #999999;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    margin-bottom: 12px;
+}
+
+.bloco-historia p:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================================================
+DESTAQUE FINAL HISTÓRIA
+========================================================= */
+
+.destaque {
+    position: relative;
+
+    margin-top: 15px;
+
+    margin-bottom: 30px;
+
+    padding: 55px 50px;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #06121c,
+            #101010,
+            #07131d
+        );
+
+    border:
+        1px solid rgba(0, 140, 255, 0.35);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.65);
+
+    animation:
+        destaqueEntrada 1s ease 1.2s both;
+}
+
+.destaque::before {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 140, 255, 0.09);
+
+    filter: blur(80px);
+
+    animation:
+        pulsarLuz 4s ease-in-out infinite;
+}
+
+.destaque::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #159cff,
+            #ffffff,
+            #159cff,
+            transparent
+        );
+
+    animation:
+        passarHistoria 4s linear infinite;
+}
+
+.destaque > div {
+    position: relative;
+
+    z-index: 2;
+}
+
+.destaque h2 {
+    color: #ffffff;
+
+    font-size: 40px;
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 0 25px rgba(21, 156, 255, 0.25);
+}
+
+.destaque h2::first-letter {
+    color: #159cff;
+}
+
+.destaque p {
+    max-width: 750px;
+
+    margin: 8px auto;
+
+    color: #999999;
+
+    font-size: 17px;
+}
+
+/* =========================================================
+PÁGINA ESTRUTURA
+========================================================= */
+
+main > section {
+    animation:
+        secaoEntrada 0.8s ease both;
+}
+
+main > section:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+main > section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+main > section:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+main > section:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+main > section:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+/* =========================================================
+CARDS DE ESTRUTURA
+========================================================= */
+
+main > section:not(.introducao):not(.historia):not(.destaque) {
+    padding: 35px;
+
+    margin-bottom: 25px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #101010,
+            #1b1b1b
+        );
+
+    border:
+        1px solid #292929;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.45);
+
+    transition:
+        0.4s ease;
+}
+
+main > section:not(.introducao):not(.historia):not(.destaque):hover {
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(0, 140, 255, 0.4);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 120, 255, 0.12);
+}
+
+main > section:not(.introducao):not(.historia):not(.destaque) h2 {
+    color: #ffffff;
+
+    font-size: 30px;
+
+    margin-bottom: 15px;
+
+    position: relative;
+}
+
+main > section:not(.introducao):not(.historia):not(.destaque) h2::after {
+    content: "";
+
+    display: block;
+
+    width: 55px;
+    height: 3px;
+
+    margin-top: 8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #008cff,
+            transparent
+        );
+
+    border-radius: 5px;
+}
+
+main > section:not(.introducao):not(.historia):not(.destaque) p {
+    color: #999999;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+/* =========================================================
+IMAGENS DA ESTRUTURA
+========================================================= */
+
+main > section img {
+    display: block;
+
+    width: 100%;
+
+    max-width: 750px;
+
+    max-height: 430px;
+
+    object-fit: cover;
+
+    margin: 20px auto;
+
+    border-radius: 18px;
+
+    border:
+        1px solid rgba(0, 140, 255, 0.2);
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.6);
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease,
+        filter 0.5s ease;
+}
+
+main > section img:hover {
+    transform:
+        scale(1.025);
+
+    filter:
+        brightness(1.08);
+
+    box-shadow:
+        0 20px 55px
+        rgba(0, 120, 255, 0.2);
+}
+
+/* =========================================================
+PÁGINA CURSOS TÉCNICOS
+========================================================= */
+
+.pagina-cursos {
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0, 140, 255, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(0, 90, 255, 0.08),
+            transparent 30%
+        ),
+        #070707;
+}
+
+.cursos-main {
+    width: 90%;
+    max-width: 1200px;
+
+    margin:
+        55px auto;
+}
+
+/* =========================================================
+TÍTULO DOS CURSOS
+========================================================= */
+
+.curso-titulo {
+    position: relative;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    padding:
+        80px 30px;
+
+    margin-bottom: 30px;
+
+    border-radius: 28px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(0, 140, 255, 0.20),
+            transparent 55%
+        ),
+        linear-gradient(
+            135deg,
+            #080808,
+            #151515,
+            #080808
+        );
+
+    border:
+        1px solid rgba(0, 140, 255, 0.25);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.65);
+
+    animation:
+        cursoHeroEntrada 1s ease both;
+}
+
+.curso-titulo::before {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    top: -250px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 140, 255, 0.15);
+
+    filter:
+        blur(70px);
+
+    animation:
+        pulsarCurso 5s ease-in-out infinite;
+}
+
+.curso-titulo::after {
+    content: "";
+
+    position: absolute;
+
+    left: -100%;
+
+    bottom: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #008cff,
+            #ffffff,
+            #008cff,
+            transparent
+        );
+
+    animation:
+        linhaCurso 4s linear infinite;
+}
+
+.curso-titulo span {
+    position: relative;
+
+    z-index: 2;
+
+    display: inline-block;
+
+    color: #159cff;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    padding:
+        8px 16px;
+
+    border-radius: 30px;
+
+    border:
+        1px solid rgba(21, 156, 255, 0.3);
+
+    background:
+        rgba(0, 120, 255, 0.08);
+
+    animation:
+        aparecer 1s ease 0.2s both;
+}
+
+.curso-titulo h2 {
+    position: relative;
+
+    z-index: 2;
+
+    color: #ffffff;
+
+    font-size: 62px;
+
+    line-height: 1.1;
+
+    margin:
+        20px 0 15px;
+
+    letter-spacing: -2px;
+
+    text-shadow:
+        0 0 35px rgba(21, 156, 255, 0.22);
+
+    animation:
+        cursoTituloEntrada 1s ease 0.2s both;
+}
+
+.curso-titulo p {
+    position: relative;
+
+    z-index: 2;
+
+    color: #999999;
+
+    font-size: 19px;
+
+    animation:
+        cursoTituloEntrada 1s ease 0.4s both;
+}
+
+/* =========================================================
+INTRODUÇÃO DOS CURSOS
+========================================================= */
+
+.curso-texto {
+    position: relative;
+
+    padding:
+        45px;
+
+    margin-bottom: 30px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #101010,
+            #1a1a1a
+        );
+
+    border:
+        1px solid #292929;
+
+    border-left:
+        4px solid #008cff;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.5);
+
+    animation:
+        cursoBlocoEntrada 0.9s ease 0.4s both;
+}
+
+.curso-texto::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 140, 255, 0.07);
+
+    filter:
+        blur(60px);
+
+    pointer-events: none;
+}
+
+.curso-texto h2 {
+    position: relative;
+
+    color: #ffffff;
+
+    font-size: 34px;
+
+    margin-bottom: 20px;
+}
+
+.curso-texto h2::after {
+    content: "";
+
+    display: block;
+
+    width: 70px;
+    height: 3px;
+
+    margin-top: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #008cff,
+            #159cff,
+            transparent
+        );
+
+    border-radius: 10px;
+}
+
+.curso-texto p {
+    position: relative;
+
+    color: #999999;
+
+    font-size: 17px;
+
+    line-height: 1.85;
+
+    margin-bottom: 15px;
+}
+
+/* =========================================================
+DESTAQUE TÉCNICO EM INFORMÁTICA
+========================================================= */
+
+.curso-principal {
+    position: relative;
+
+    overflow: hidden;
+
+    padding:
+        55px;
+
+    margin-bottom: 30px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #07131d,
+            #101010,
+            #081722
+        );
+
+    border:
+        1px solid rgba(0, 140, 255, 0.3);
+
+    border-left:
+        5px solid #008cff;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.6);
+
+    animation:
+        cursoBlocoEntrada 0.9s ease 0.6s both;
+
+    transition:
+        0.4s ease;
+}
+
+.curso-principal:hover {
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(0, 150, 255, 0.55);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0, 120, 255, 0.15);
+}
+
+.curso-principal::before {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    right: -120px;
+    top: -130px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 140, 255, 0.12);
+
+    filter:
+        blur(70px);
+
+    animation:
+        flutuarLuz 5s ease-in-out infinite;
+}
+
+.curso-principal::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(21, 156, 255, 0.05),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        0.8s ease;
+}
+
+.curso-principal:hover::after {
+    left: 130%;
+}
+
+.curso-principal > div {
+    position: relative;
+
+    z-index: 3;
+
+    max-width: 800px;
+}
+
+.tag-azul {
+    display: inline-block;
+
+    padding:
+        7px 14px;
+
+    color: #159cff;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    border:
+        1px solid rgba(21, 156, 255, 0.35);
+
+    border-radius: 30px;
+
+    background:
+        rgba(0, 130, 255, 0.08);
+
+    animation:
+        brilhoTag 2.5s infinite alternate;
+}
+
+.curso-principal h2 {
+    color: #ffffff;
+
+    font-size: 42px;
+
+    margin:
+        18px 0;
+
+    text-shadow:
+        0 0 25px rgba(21, 156, 255, 0.18);
+}
+
+.curso-principal h2::first-letter {
+    color: #159cff;
+}
+
+.curso-principal p {
+    color: #a3a3a3;
+
+    font-size: 17px;
+
+    line-height: 1.85;
+
+    margin-bottom: 14px;
+}
+
+/* =========================================================
+APRENDIZADO
+========================================================= */
+
+.aprendizado {
+    padding:
+        55px 45px;
+
+    margin-bottom: 30px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0d0d0d,
+            #181818
+        );
+
+    border:
+        1px solid #292929;
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.5);
+
+    animation:
+        cursoBlocoEntrada 0.9s ease 0.8s both;
+}
+
+.aprendizado h2 {
+    text-align: center;
+
+    color: #ffffff;
+
+    font-size: 38px;
+
+    margin-bottom: 10px;
+}
+
+.aprendizado h2::after {
+    content: "";
+
+    display: block;
+
+    width: 70px;
+    height: 3px;
+
+    margin:
+        12px auto 15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #008cff,
+            #159cff
+        );
+
+    box-shadow:
+        0 0 15px rgba(0, 140, 255, 0.5);
+}
+
+.subtitulo {
+    text-align: center;
+
+    color: #888888;
+
+    margin-bottom: 40px;
+}
+
+/* =========================================================
+CARDS DE TECNOLOGIA
+========================================================= */
+
+.cards-tecnologia {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.cards-tecnologia article {
+    position: relative;
+
+    overflow: hidden;
+
+    padding:
+        30px;
+
+    min-height: 250px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #101010,
+            #191919
+        );
+
+    border:
+        1px solid #303030;
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        background 0.4s ease;
+
+    animation:
+        cardCursoEntrada 0.7s ease both;
+}
+
+.cards-tecnologia article:nth-child(1) {
+    animation-delay: 0.9s;
+}
+
+.cards-tecnologia article:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.cards-tecnologia article:nth-child(3) {
+    animation-delay: 1.1s;
+}
+
+.cards-tecnologia article:nth-child(4) {
+    animation-delay: 1.2s;
+}
+
+.cards-tecnologia article:nth-child(5) {
+    animation-delay: 1.3s;
+}
+
+.cards-tecnologia article:nth-child(6) {
+    animation-delay: 1.4s;
+}
+
+.cards-tecnologia article::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #006dcc,
+            #159cff,
+            #ffffff
+        );
+
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        left;
+
+    transition:
+        0.5s ease;
+}
+
+.cards-tecnologia article::after {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    right: -60px;
+    bottom: -60px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 140, 255, 0.06);
+
+    filter:
+        blur(20px);
+
+    transition:
+        0.5s ease;
+}
+
+.cards-tecnologia article:hover {
+    transform:
+        translateY(-12px);
+
+    border-color:
+        rgba(0, 140, 255, 0.5);
+
+    background:
+        linear-gradient(
+            145deg,
+            #0d1720,
+            #191919
+        );
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 130, 255, 0.15);
+}
+
+.cards-tecnologia article:hover::before {
+    transform:
+        scaleX(1);
+}
+
+.cards-tecnologia article:hover::after {
+    transform:
+        scale(2);
+}
+
+.icone {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 16px;
+
+    color: #ffffff;
+
+    font-weight: bold;
+
+    font-size: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #006dcc,
+            #159cff
+        );
+
+    box-shadow:
+        0 0 25px rgba(0, 140, 255, 0.25);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.cards-tecnologia article:hover .icone {
+    transform:
+        translateY(-5px)
+        rotate(-5deg)
+        scale(1.08);
+
+    box-shadow:
+        0 0 35px
+        rgba(0, 150, 255, 0.45);
+}
+
+.cards-tecnologia h3 {
+    color: #ffffff;
+
+    font-size: 21px;
+
+    margin-bottom: 10px;
+}
+
+.cards-tecnologia p {
+    color: #888888;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+/* =========================================================
+COMO FUNCIONA
+========================================================= */
+
+.como-funciona {
+    padding:
+        55px 45px;
+
+    margin-bottom: 30px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #090909,
+            #151515
+        );
+
+    border:
+        1px solid #292929;
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.5);
+
+    animation:
+        cursoBlocoEntrada 0.9s ease 1s both;
+}
+
+.como-funciona h2 {
+    text-align: center;
+
+    color: #ffffff;
+
+    font-size: 36px;
+
+    margin-bottom: 45px;
+}
+
+.linha {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+
+    position: relative;
+}
+
+.linha::before {
+    content: "";
+
+    position: absolute;
+
+    top: 28px;
+    left: 10%;
+
+    width: 80%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #008cff,
+            #159cff,
+            #008cff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(0, 140, 255, 0.3);
+}
+
+.etapa {
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    padding:
+        15px;
+
+    transition:
+        transform 0.4s ease;
+}
+
+.etapa:hover {
+    transform:
+        translateY(-8px);
+}
+
+.etapa strong {
+    width: 58px;
+    height: 58px;
+
+    margin:
+        0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #006dcc,
+            #159cff
+        );
+
+    border:
+        4px solid #0c0c0c;
+
+    box-shadow:
+        0 0 0 2px #008cff,
+        0 0 25px rgba(0, 140, 255, 0.35);
+
+    font-size: 15px;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.etapa:hover strong {
+    transform:
+        scale(1.15);
+
+    box-shadow:
+        0 0 0 2px #159cff,
+        0 0 35px rgba(0, 150, 255, 0.6);
+}
+
+.etapa h3 {
+    color: #ffffff;
+
+    font-size: 21px;
+
+    margin-bottom: 10px;
+}
+
+.etapa p {
+    color: #888888;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+/* =========================================================
+FINAL DO CURSO
+========================================================= */
+
+.final-curso {
+    position: relative;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    padding:
+        65px 40px;
+
+    margin-bottom: 30px;
+
+    border-radius: 26px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0, 140, 255, 0.15),
+            transparent 55%
+        ),
+        linear-gradient(
+            135deg,
+            #06111a,
+            #101010,
+            #07131d
+        );
+
+    border:
+        1px solid rgba(0, 140, 255, 0.35);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0, 0, 0, 0.65);
+
+    animation:
+        finalCursoEntrada 1s ease 1.2s both;
+}
+
+.final-curso::before {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 140, 255, 0.08);
+
+    filter:
+        blur(70px);
+
+    animation:
+        pulsarLuz 4s infinite;
+}
+
+.final-curso::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #159cff,
+            #ffffff,
+            #159cff,
+            transparent
+        );
+
+    animation:
+        passarHistoria 4s infinite;
+}
+
+.final-curso h2,
+.final-curso p {
+    position: relative;
+
+    z-index: 2;
+}
+
+.final-curso h2 {
+    color: #ffffff;
+
+    font-size: 44px;
+
+    margin-bottom: 18px;
+
+    text-shadow:
+        0 0 30px rgba(21, 156, 255, 0.25);
+}
+
+.final-curso h2::first-letter {
+    color: #159cff;
+}
+
+.final-curso p {
+    max-width: 780px;
+
+    margin:
+        8px auto;
+
+    color: #999999;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+/* =========================================================
+FOOTER
+========================================================= */
+
+footer {
+    padding: 40px 20px;
+
+    text-align: center;
+
+    background: #050505;
+
+    border-top:
+        1px solid #292929;
+
+    position: relative;
+}
+
+footer::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 100px;
+    height: 2px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        #159cff;
+
+    box-shadow:
+        0 0 15px #159cff;
+}
+
+footer h3 {
+    color: #ffffff;
+}
+
+footer p {
+    color: #777777;
+
+    margin: 5px;
+}
+
+.copyright {
+    margin-top: 20px !important;
+
+    color:
+        #159cff !important;
+}
+
+/* =========================================================
+ANIMAÇÕES GERAIS
+========================================================= */
+
+@keyframes headerEntrada {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes entradaHero {
+    from {
+        opacity: 0;
+
+        transform:
+            scale(1.03);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+@keyframes textoEntrada {
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+@keyframes flutuar {
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-10px);
+    }
+}
+
+@keyframes brilho {
+    from {
+        opacity: 0.4;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes luzBanner {
+    from {
+        transform:
+            translate(0, 0);
+    }
+
+    to {
+        transform:
+            translate(-100px, -50px);
+    }
+}
+
+@keyframes girar {
+    from {
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+@keyframes linha {
+    from {
+        width: 100px;
+
+        opacity: 0.3;
+    }
+
+    to {
+        width: 250px;
+
+        opacity: 1;
+    }
+}
+
+@keyframes piscar {
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes passarLinha {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+/* =========================================================
+ANIMAÇÕES HISTÓRIA
+========================================================= */
+
+@keyframes historiaEntrada {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes linhaIntroducao {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 65%;
+    }
+}
+
+@keyframes linhaHistoria {
+    from {
+        transform:
+            scaleY(0);
+
+        transform-origin:
+            top;
+    }
+
+    to {
+        transform:
+            scaleY(1);
+
+        transform-origin:
+            top;
+    }
+}
+
+@keyframes blocoEntrada {
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+@keyframes destaqueEntrada {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(40px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes pulsarLuz {
+    0%,
+    100% {
+        opacity: 0.4;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.8);
+    }
+
+    50% {
+        opacity: 0.8;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.15);
+    }
+}
+
+@keyframes passarHistoria {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+/* =========================================================
+ANIMAÇÕES ESTRUTURA
+========================================================= */
+
+@keyframes secaoEntrada {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+/* =========================================================
+ANIMAÇÕES CURSOS
+========================================================= */
+
+@keyframes cursoHeroEntrada {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(40px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes cursoTituloEntrada {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes cursoBlocoEntrada {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes cardCursoEntrada {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes pulsarCurso {
+    0%,
+    100% {
+        opacity: 0.4;
+
+        transform:
+            translateX(-50%)
+            scale(0.8);
+    }
+
+    50% {
+        opacity: 0.8;
+
+        transform:
+            translateX(-50%)
+            scale(1.1);
+    }
+}
+
+@keyframes linhaCurso {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes brilhoTag {
+    from {
+        box-shadow:
+            0 0 5px
+            rgba(0, 140, 255, 0.05);
+    }
+
+    to {
+        box-shadow:
+            0 0 20px
+            rgba(0, 140, 255, 0.25);
+    }
+}
+
+@keyframes flutuarLuz {
+    0%,
+    100% {
+        transform:
+            translate(0, 0);
+    }
+
+    50% {
+        transform:
+            translate(-40px, 30px);
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes finalCursoEntrada {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(50px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+/* =========================================================
+ACESSIBILIDADE
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        scroll-behavior:
+            auto !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+}
+
+/* =========================================================
+TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    header {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .cards-tecnologia {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .home-cards {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .indicadores {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .linha {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        row-gap: 40px;
+    }
+
+    .linha::before {
+        display: none;
+    }
+
+    .home-tecnico {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .codigo-box {
+        width: 100%;
+    }
+
+    .home-final {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+}
+
+/* =========================================================
+HISTÓRIA - TABLET
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .introducao {
+        padding:
+            50px 22px 45px;
+    }
+
+    .introducao h2 {
+        font-size: 34px;
+    }
+
+    .introducao p {
+        font-size: 16px;
+    }
+
+    .historia::before {
+        left: 25px;
+    }
+
+    .bloco-historia {
+        gap: 20px;
+
+        padding:
+            25px 20px 25px 15px;
+
+        margin-left: 0;
+
+        border-left:
+            2px solid #214563;
+    }
+
+    .bloco-historia .numero {
+        width: 52px;
+        height: 52px;
+
+        font-size: 15px;
+
+        flex-shrink: 0;
+    }
+
+    .bloco-historia h2 {
+        font-size: 22px;
+    }
+
+    .bloco-historia p {
+        font-size: 15px;
+
+        line-height: 1.7;
+    }
+
+    .bloco-historia:hover {
+        transform:
+            translateY(-4px);
+    }
+
+    .destaque {
+        padding:
+            40px 22px;
+    }
+
+    .destaque h2 {
+        font-size: 30px;
+    }
+
+    .destaque p {
+        font-size: 15px;
+    }
+}
+
+/* =========================================================
+CURSOS - CELULAR
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .cursos-main {
+        width: 94%;
+
+        margin:
+            30px auto;
+    }
+
+    .curso-titulo {
+        padding:
+            55px 20px;
+    }
+
+    .curso-titulo h2 {
+        font-size: 42px;
+
+        letter-spacing:
+            -1px;
+    }
+
+    .curso-titulo p {
+        font-size: 16px;
+    }
+
+    .curso-texto {
+        padding:
+            30px 22px;
+    }
+
+    .curso-texto h2 {
+        font-size: 28px;
+    }
+
+    .curso-texto p {
+        font-size: 15px;
+    }
+
+    .curso-principal {
+        padding:
+            35px 25px;
+    }
+
+    .curso-principal h2 {
+        font-size: 32px;
+    }
+
+    .curso-principal p {
+        font-size: 15px;
+    }
+
+    .aprendizado {
+        padding:
+            40px 22px;
+    }
+
+    .aprendizado h2 {
+        font-size: 30px;
+    }
+
+    .cards-tecnologia {
+        grid-template-columns: 1fr;
+    }
+
+    .cards-tecnologia article {
+        min-height: auto;
+    }
+
+    .como-funciona {
+        padding:
+            40px 22px;
+    }
+
+    .como-funciona h2 {
+        font-size: 29px;
+    }
+
+    .linha {
+        grid-template-columns:
+            1fr;
+
+        gap: 30px;
+    }
+
+    .etapa {
+        text-align: left;
+
+        display: grid;
+
+        grid-template-columns:
+            60px 1fr;
+
+        column-gap: 15px;
+
+        align-items: center;
+    }
+
+    .etapa strong {
+        grid-row:
+            span 2;
+
+        margin: 0;
+    }
+
+    .etapa h3 {
+        margin-bottom: 3px;
+    }
+
+    .etapa p {
+        grid-column:
+            2;
+    }
+
+    .final-curso {
+        padding:
+            45px 22px;
+    }
+
+    .final-curso h2 {
+        font-size: 32px;
+    }
+
+    .final-curso p {
+        font-size: 15px;
+    }
+}
+
+/* =========================================================
+CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+    main {
+        width: 94%;
+
+        margin:
+            30px auto;
+    }
+
+    header {
+        padding:
+            20px 15px;
+    }
+
+    header > h1 {
+        font-size: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    nav a {
+        width: 220px;
+
+        text-align: center;
+    }
+
+    .logo {
+        flex-direction: column;
+    }
+
+    .logo h1 {
+        font-size: 20px;
+    }
+
+    .home-hero {
+        min-height: 520px;
+
+        padding:
+            30px 22px;
+    }
+
+    .hero-conteudo h2 {
+        font-size: 38px;
+    }
+
+    .hero-conteudo p {
+        font-size: 17px;
+    }
+
+    .home-secao,
+    .home-tecnico,
+    .home-diferenciais,
+    .home-final {
+        padding:
+            28px 22px;
+    }
+
+    .home-secao {
+        flex-direction: column;
+    }
+
+    .home-cards {
+        grid-template-columns:
+            1fr;
+    }
+
+    .indicadores {
+        grid-template-columns:
+            1fr;
+    }
+
+    .secao-texto h2,
+    .tecnico-texto h2 {
+        font-size: 28px;
+    }
+
+    .titulo-centro h2 {
+        font-size: 28px;
+    }
+
+    .home-final h2 {
+        font-size: 30px;
+    }
+
+    /* Estrutura */
+
+    main > section:not(.introducao):not(.historia):not(.destaque) {
+        padding:
+            28px 22px;
+    }
+
+    main > section:not(.introducao):not(.historia):not(.destaque) h2 {
+        font-size: 26px;
+    }
+
+    main > section img {
+        max-height:
+            300px;
+    }
+
+    /* =====================================================
+    BOTÕES - CELULAR
+    ===================================================== */
+
+    .botao {
+        width: 100%;
+
+        max-width: 300px;
+
+        text-align: center;
+
+        padding:
+            13px 20px;
+    }
+
+    .hero-botoes {
+        width: 100%;
+    }
+
+    .botao-hero,
+    .botao-secundario {
+        text-align: center;
+    }
+}
+
+/* =========================================================
+CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .introducao h2 {
+        font-size: 29px;
+    }
+
+    .bloco-historia {
+        gap: 15px;
+
+        padding:
+            22px 15px 22px 12px;
+    }
+
+    .bloco-historia .numero {
+        width: 45px;
+        height: 45px;
+
+        font-size: 13px;
+
+        box-shadow:
+            0 0 0 2px #008cff,
+            0 0 15px
+            rgba(0, 140, 255, 0.35);
+    }
+
+    .bloco-historia h2 {
+        font-size: 20px;
+    }
+
+    .bloco-historia p {
+        font-size: 14px;
+    }
+
+    .destaque h2 {
+        font-size: 26px;
+    }
+
+    .curso-titulo h2 {
+        font-size: 35px;
+    }
+
+    .curso-titulo span {
+        font-size: 10px;
+
+        letter-spacing: 2px;
+    }
+
+    .curso-principal h2 {
+        font-size: 28px;
+    }
+
+    .aprendizado h2 {
+        font-size: 27px;
+    }
+
+    .final-curso h2 {
+        font-size: 28px;
+    }
+
+    .botao {
+        max-width: 100%;
+    }
+}
+body {
+    background: rgba(70, 75, 90, 0.966) !important;
+}
+/* =========================================
+   VÍDEO DA ESCOLA
+========================================= */
+
+.video-escola {
+    width: 90%;
+    max-width: 1200px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.video-titulo {
+    margin-bottom: 35px;
+}
+
+.video-titulo h2 {
+    font-size: 42px;
+    margin: 15px 0;
+}
+
+.video-titulo h2 span {
+    color: #168cff;
+}
+
+.video-titulo p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #bdbdbd;
+    font-size: 17px;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #000;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.video-container video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+/* =========================================================
+   ✨ ANIMAÇÃO GERAL DO SITE
+   Escola Estadual José de Alencar
+   Cole este bloco NO FINAL do style.css
+========================================================= */
+
+
+/* =========================================================
+   1. ROLAGEM SUAVE
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* =========================================================
+   2. EFEITO DE ENTRADA DA PÁGINA
+========================================================= */
+
+body {
+    animation: paginaEntrando 0.8s ease-out;
+}
+
+@keyframes paginaEntrando {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================================
+   3. CABEÇALHO
+========================================================= */
+
+header {
+    animation: headerEntrando 0.9s ease-out;
+}
+
+@keyframes headerEntrando {
+
+    from {
+        opacity: 0;
+        transform: translateY(-35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   4. TÍTULOS
+========================================================= */
+
+h1,
+h2,
+h3 {
+    transition:
+        transform 0.35s ease,
+        text-shadow 0.35s ease;
+}
+
+h1:hover,
+h2:hover,
+h3:hover {
+    transform: translateY(-2px);
+
+    text-shadow:
+        0 0 10px rgba(42, 91, 131, 0.25),
+        0 0 25px rgba(19, 63, 99, 0.12);
+}
+
+
+/* =========================================================
+   5. MENU
+========================================================= */
+
+nav ul li {
+    transition: transform 0.3s ease;
+}
+
+nav ul li:hover {
+    transform: translateY(-3px);
+}
+
+nav ul li a {
+    position: relative;
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+nav ul li a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -5px;
+
+    width: 0;
+    height: 2px;
+
+    transform: translateX(-50%);
+
+    background: #42607e;
+
+    transition: width 0.35s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a.ativo::after {
+    width: 70%;
+}
+
+
+/* =========================================================
+   6. LINKS
+========================================================= */
+
+a {
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* =========================================================
+   7. SEÇÕES
+========================================================= */
+
+section {
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
+}
+
+
+/* =========================================================
+   8. CARDS DA ESTRUTURA
+========================================================= */
+
+.estrutura-card {
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease,
+        border-color 0.45s ease;
+}
+
+.estrutura-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.55),
+        0 0 25px rgba(0, 140, 255, 0.12);
+}
+
+
+/* =========================================================
+   9. IMAGENS
+========================================================= */
+
+img {
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+.estrutura-imagem {
+    overflow: hidden;
+}
+
+.estrutura-imagem img:hover {
+    transform: scale(1.06);
+
+    filter:
+        brightness(1.08)
+        contrast(1.05);
+}
+
+
+/* =========================================================
+   10. LEGENDA DAS IMAGENS
+========================================================= */
+
+.imagem-legenda {
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
+}
+
+.estrutura-imagem:hover .imagem-legenda {
+    transform: translateY(-4px);
+}
+
+
+/* =========================================================
+   11. NÚMEROS DOS AMBIENTES
+========================================================= */
+
+.estrutura-numero {
+    display: inline-block;
+
+    transition:
+        transform 0.4s ease,
+        text-shadow 0.4s ease;
+}
+
+.estrutura-card:hover .estrutura-numero {
+    transform: scale(1.08);
+
+    text-shadow:
+        0 0 15px rgba(0, 140, 255, 0.35);
+}
+
+
+/* =========================================================
+   12. TAGS
+========================================================= */
+
+.tag-ambiente {
+    transition:
+        transform 0.3s ease,
+        letter-spacing 0.3s ease;
+}
+
+.tag-ambiente:hover {
+    transform: translateX(4px);
+
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   13. FRASES DE DESTAQUE
+========================================================= */
+
+.frase-destaque {
+    transition:
+        transform 0.35s ease,
+        padding-left 0.35s ease;
+}
+
+.frase-destaque:hover {
+    transform: translateX(5px);
+
+    padding-left: 8px;
+}
+
+
+/* =========================================================
+   14. CARDS PEQUENOS DOS AMBIENTES
+========================================================= */
+
+.ambiente-mini {
+    position: relative;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.ambiente-mini:hover {
+    transform:
+        translateY(-10px)
+        scale(1.02);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.55),
+        0 0 25px rgba(0, 140, 255, 0.14);
+}
+
+
+/* =========================================================
+   15. NÚMERO DOS CARDS
+========================================================= */
+
+.ambiente-mini > span {
+    transition:
+        transform 0.4s ease,
+        text-shadow 0.4s ease;
+}
+
+.ambiente-mini:hover > span {
+    transform: scale(1.15);
+
+    text-shadow:
+        0 0 15px rgba(0, 140, 255, 0.4);
+}
+
+
+/* =========================================================
+   16. BOTÕES
+========================================================= */
+
+button,
+.btn,
+.botao,
+a[class*="btn"],
+a[class*="botao"] {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.3s ease;
+}
+
+button:hover,
+.btn:hover,
+.botao:hover,
+a[class*="btn"]:hover,
+a[class*="botao"]:hover {
+    transform: translateY(-4px);
+
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.35),
+        0 0 20px rgba(0, 140, 255, 0.18);
+}
+
+button:active,
+.btn:active,
+.botao:active,
+a[class*="btn"]:active,
+a[class*="botao"]:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+
+/* =========================================================
+   17. FORMULÁRIOS - ABA CONTATO
+========================================================= */
+
+input,
+textarea,
+select {
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 0 2px rgba(0, 140, 255, 0.12),
+        0 0 20px rgba(0, 140, 255, 0.12);
+}
+
+
+/* =========================================================
+   18. VÍDEO
+========================================================= */
+
+.video-container {
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+}
+
+.video-container:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(0, 140, 255, 0.16);
+}
+
+.video-container video {
+    transition:
+        transform 0.5s ease;
+}
+
+.video-container:hover video {
+    transform: scale(1.005);
+}
+
+
+/* =========================================================
+   19. DESTAQUE FINAL
+========================================================= */
+
+.estrutura-destaque {
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+.estrutura-destaque:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.55),
+        0 0 35px rgba(0, 140, 255, 0.12);
+}
+
+
+/* =========================================================
+   20. RODAPÉ
+========================================================= */
+
+footer {
+    transition:
+        box-shadow 0.4s ease;
+}
+
+footer:hover {
+    box-shadow:
+        0 -10px 40px rgba(0, 140, 255, 0.08);
+}
+
+
+/* =========================================================
+   21. EFEITO DE BRILHO AZUL
+========================================================= */
+
+.mini-titulo,
+.tag-ambiente {
+    animation: brilhoAzul 3s ease-in-out infinite;
+}
+
+@keyframes brilhoAzul {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 0 rgba(0, 140, 255, 0);
+    }
+
+    50% {
+        text-shadow:
+            0 0 12px rgba(0, 140, 255, 0.25);
+    }
+
+}
+
+
+/* =========================================================
+   22. LINHAS DE DESTAQUE
+========================================================= */
+
+.linha-destaque {
+    transform-origin: left;
+
+    animation: linhaEntrada 1s ease both;
+}
+
+@keyframes linhaEntrada {
+
+    from {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================================
+   23. EFEITO DE FLUTUAÇÃO
+========================================================= */
+
+.ambiente-mini:nth-child(1) {
+    animation: flutuarCard 5s ease-in-out infinite;
+}
+
+.ambiente-mini:nth-child(2) {
+    animation: flutuarCard 5s ease-in-out infinite 0.4s;
+}
+
+.ambiente-mini:nth-child(3) {
+    animation: flutuarCard 5s ease-in-out infinite 0.8s;
+}
+
+.ambiente-mini:nth-child(4) {
+    animation: flutuarCard 5s ease-in-out infinite 1.2s;
+}
+
+.ambiente-mini:nth-child(5) {
+    animation: flutuarCard 5s ease-in-out infinite 1.6s;
+}
+
+.ambiente-mini:nth-child(6) {
+    animation: flutuarCard 5s ease-in-out infinite 2s;
+}
+
+@keyframes flutuarCard {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+
+}
+
+
+/* =========================================================
+   24. SELEÇÃO DE TEXTO
+========================================================= */
+
+::selection {
+    background: rgba(22, 140, 255, 0.35);
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   25. BARRA DE ROLAGEM
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #080808;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #168cff;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3da3ff;
+}
+
+
+/* =========================================================
+   26. RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    nav ul li:hover {
+        transform: none;
+    }
+
+    .estrutura-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .ambiente-mini:hover {
+        transform: translateY(-5px);
+    }
+
+    .video-container:hover {
+        transform: none;
+    }
+
+    h1:hover,
+    h2:hover,
+    h3:hover {
+        transform: none;
+    }
+
+}
+
+
+/* =========================================================
+   27. REDUZIR ANIMAÇÕES SE O USUÁRIO PREFERIR
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}

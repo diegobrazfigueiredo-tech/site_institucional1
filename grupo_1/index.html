@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Escola Estadual José de Alencar</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   HTML
+===================================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+
+    background: #05080e;
+
+    color: #ffffff;
+
+    font-family: "Manrope", sans-serif;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   SELEÇÃO
+===================================================== */
+
+::selection {
+
+    background: #3d8cff;
+
+    color: white;
+}
+
+
+/* =====================================================
+   VARIÁVEIS
+===================================================== */
+
+:root {
+
+    --black: #05080e;
+
+    --deep: #07111f;
+
+    --blue: #1769d2;
+
+    --electric: #57a0ff;
+
+    --white: #ffffff;
+
+    --muted: rgba(255,255,255,.55);
+
+    --line: rgba(255,255,255,.1);
+}
+
+
+/* =====================================================
+   TEXTURA
+===================================================== */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 999;
+
+    opacity: .035;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+
+/* =====================================================
+   CURSOR
+===================================================== */
+
+.cursor {
+
+    width: 7px;
+
+    height: 7px;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    border-radius: 50%;
+
+    background: white;
+
+    pointer-events: none;
+
+    z-index: 10000;
+
+    mix-blend-mode: difference;
+}
+
+
+.cursor-ring {
+
+    width: 38px;
+
+    height: 38px;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    border: 1px solid rgba(255,255,255,.45);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    transition:
+        width .3s ease,
+        height .3s ease;
+}
+
+
+/* =====================================================
+   CAPA
+===================================================== */
+
+.capa {
+
+    height: 100vh;
+
+    min-height: 700px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    background: url("ja.jpg") center center / cover no-repeat;
+
+    color: white;
+}
+
+
+/* =====================================================
+   CAMADA ESCURA SOBRE A FOTO
+===================================================== */
+
+.capa-overlay {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            rgba(5,8,14,.20),
+            rgba(5,8,14,.78)
+        );
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   BORDA
+===================================================== */
+
+.borda-video {
+
+    position: absolute;
+
+    top: 5%;
+
+    left: 5%;
+
+    width: 90%;
+
+    height: 90%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    z-index: 3;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   GLOW AZUL
+===================================================== */
+
+.capa-glow {
+
+    position: absolute;
+
+    width: 520px;
+
+    height: 520px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(31,116,255,.15);
+
+    filter: blur(120px);
+
+    left: 50%;
+
+    top: 48%;
+
+    transform:
+        translate(-50%,-50%);
+
+    z-index: 4;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   CÍRCULO DECORATIVO
+===================================================== */
+
+.capa::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 480px;
+
+    height: 480px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius: 50%;
+
+    right: -240px;
+
+    bottom: -240px;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 90px;
+
+    padding:
+        0 5vw;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    z-index: 500;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    font-weight: 600;
+}
+
+
+.logo span {
+
+    display: block;
+
+    color:
+        rgba(255,255,255,.5);
+
+    font-size: 7px;
+
+    letter-spacing: 4px;
+
+    margin-top: 7px;
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+}
+
+
+.menu a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    opacity: .65;
+
+    transition: .3s;
+}
+
+
+.menu a:hover {
+
+    opacity: 1;
+
+    color: #57a0ff;
+}
+
+
+.menu-circle {
+
+    width: 45px;
+
+    height: 45px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 12px;
+
+    color: white;
+}
+
+
+/* =====================================================
+   LINHA
+===================================================== */
+
+.linha {
+
+    position: absolute;
+
+    top: 90px;
+
+    left: 5vw;
+
+    width: 90%;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,.1);
+
+    z-index: 400;
+}
+
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+.conteudo {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 90%;
+
+    max-width: 1500px;
+
+    margin: auto;
+}
+
+
+/* =====================================================
+   META
+===================================================== */
+
+.hero-meta {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 40px;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color:
+        rgba(255,255,255,.55);
+}
+
+
+.status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.status-dot {
+
+    width: 5px;
+
+    height: 5px;
+
+    border-radius: 50%;
+
+    background:
+        #57a0ff;
+
+    box-shadow:
+        0 0 15px #57a0ff;
+}
+
+
+/* =====================================================
+   SUBTÍTULO
+===================================================== */
+
+.subtitulo {
+
+    color:
+        #57a0ff;
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+h1 {
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:
+        clamp(70px, 13vw, 210px);
+
+    font-weight: 300;
+
+    line-height: .78;
+
+    letter-spacing:
+        -.075em;
+
+    text-transform:
+        uppercase;
+
+    max-width:
+        1500px;
+
+    margin-bottom: 45px;
+}
+
+
+h1 .linha-titulo {
+
+    display: block;
+
+    overflow: hidden;
+}
+
+
+h1 .nome {
+
+    color:
+        rgba(255,255,255,.45);
+}
+
+
+h1 .azul {
+
+    color:
+        #57a0ff;
+}
+
+
+/* =====================================================
+   DESCRIÇÃO
+===================================================== */
+
+.descricao {
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 300;
+
+    line-height: 1.7;
+
+    color:
+        rgba(255,255,255,.65);
+
+    max-width: 430px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =====================================================
+   BOTÃO
+===================================================== */
+
+.botao {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    min-width: 155px;
+
+    padding:
+        16px 24px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    background:
+        rgba(255,255,255,.04);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    transition:
+        .35s ease;
+
+    backdrop-filter:
+        blur(10px);
+
+    cursor: pointer;
+}
+
+
+.botao:hover {
+
+    background:
+        #ffffff;
+
+    color:
+        #05080e;
+
+    border-color:
+        white;
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =====================================================
+   FRASE LATERAL
+===================================================== */
+
+.frase {
+
+    position: absolute;
+
+    right: 5vw;
+
+    bottom: 55px;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color:
+        rgba(255,255,255,.45);
+
+    writing-mode:
+        vertical-rl;
+
+    z-index: 20;
+}
+
+
+/* =====================================================
+   NÚMERO
+===================================================== */
+
+.numero {
+
+    position: absolute;
+
+    right: 8vw;
+
+    top: 42%;
+
+    font-size:
+        clamp(80px, 12vw, 180px);
+
+    font-weight: 300;
+
+    color:
+        rgba(255,255,255,.035);
+
+    letter-spacing:
+        -.08em;
+
+    z-index: 6;
+
+    user-select: none;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media(max-width: 900px) {
+
+    .menu {
+
+        gap: 18px;
+    }
+
+
+    .menu a {
+
+        font-size: 8px;
+    }
+
+
+    .menu-circle {
+
+        width: 40px;
+
+        height: 40px;
+    }
+
+
+    h1 {
+
+        font-size:
+            clamp(60px, 14vw, 120px);
+    }
+
+
+    .hero-meta {
+
+        margin-bottom: 30px;
+    }
+
+
+    .frase {
+
+        display: none;
+    }
+
+
+    .numero {
+
+        right: -20px;
+    }
+
+}
+
+
+@media(max-width: 600px) {
+
+    .capa {
+
+        min-height: 650px;
+    }
+
+
+    header {
+
+        height: 75px;
+
+        padding:
+            0 25px;
+    }
+
+
+    .linha {
+
+        top: 75px;
+
+        left: 25px;
+
+        width:
+            calc(100% - 50px);
+    }
+
+
+    .menu {
+
+        gap: 12px;
+    }
+
+
+    .menu a {
+
+        display: none;
+    }
+
+
+    .menu-circle {
+
+        width: 40px;
+
+        height: 40px;
+    }
+
+
+    .conteudo {
+
+        width:
+            calc(100% - 50px);
+
+        margin-top:
+            30px;
+    }
+
+
+    .hero-meta {
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .subtitulo {
+
+        font-size: 7px;
+
+        letter-spacing: 3px;
+
+        margin-bottom: 20px;
+    }
+
+
+    h1 {
+
+        font-size:
+            clamp(58px, 17vw, 95px);
+
+        line-height: .82;
+
+        letter-spacing:
+            -.065em;
+
+        margin-bottom: 30px;
+    }
+
+
+    .descricao {
+
+        font-size: 13px;
+
+        max-width: 300px;
+
+        margin-bottom: 28px;
+    }
+
+
+    .botao {
+
+        min-width: 140px;
+
+        padding:
+            14px 20px;
+
+        font-size: 8px;
+    }
+
+
+    .borda-video {
+
+        top: 3%;
+
+        left: 3%;
+
+        width: 94%;
+
+        height: 94%;
+    }
+
+
+    .capa::after {
+
+        width: 300px;
+
+        height: 300px;
+
+        right: -150px;
+
+        bottom: -150px;
+    }
+
+
+    .numero {
+
+        font-size: 100px;
+
+        right: -30px;
+
+        top: 35%;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =================================================
+     CURSOR
+================================================== -->
+
+<div class="cursor"></div>
+
+<div class="cursor-ring"></div>
+
+
+<!-- =================================================
+     CAPA
+================================================== -->
+
+<section class="capa">
+
+
+    <!-- =================================================
+         CAMADA ESCURA
+    ================================================== -->
+
+    <div class="capa-overlay"></div>
+
+
+    <!-- =================================================
+         BORDA
+    ================================================== -->
+
+    <div class="borda-video"></div>
+
+
+    <!-- =================================================
+         GLOW
+    ================================================== -->
+
+    <div class="capa-glow"></div>
+
+
+    <!-- =================================================
+         NÚMERO
+    ================================================== -->
+
+    <div class="numero">
+
+        01
+
+    </div>
+
+
+    <!-- =================================================
+         HEADER
+    ================================================== -->
+
+    <header>
+
+
+        <a href="#" class="logo">
+
+            JOSÉ DE ALENCAR
+
+            <span>
+
+                ESCOLA ESTADUAL
+
+            </span>
+
+        </a>
+
+
+        <nav class="menu">
+
+
+            <a href="#">
+
+                INÍCIO
+
+            </a>
+
+
+            <a href="#">
+
+                ESCOLA
+
+            </a>
+
+
+            <a href="#">
+
+                CONTATO
+
+            </a>
+
+
+            <div class="menu-circle">
+
+                +
+
+            </div>
+
+
+        </nav>
+
+
+    </header>
+
+
+    <!-- =================================================
+         LINHA
+    ================================================== -->
+
+    <div class="linha"></div>
+
+
+    <!-- =================================================
+         CONTEÚDO
+    ================================================== -->
+
+    <div class="conteudo">
+
+
+        <!-- META -->
+
+        <div class="hero-meta">
+
+
+            <div class="status">
+
+                <div class="status-dot"></div>
+
+                ESCOLA ESTADUAL
+
+            </div>
+
+
+            <div>
+
+                MACHACALIS — MG
+
+            </div>
+
+
+        </div>
+
+
+        <!-- SUBTÍTULO -->
+
+        <div class="subtitulo">
+
+            EDUCAÇÃO • CONHECIMENTO • FUTURO
+
+        </div>
+
+
+        <!-- TÍTULO -->
+
+        <h1>
+
+
+            <span class="linha-titulo">
+
+                José
+
+            </span>
+
+
+            <span class="linha-titulo nome">
+
+
+                <span class="azul">
+
+                    de
+
+                </span>
+
+
+                Alencar
+
+
+            </span>
+
+
+        </h1>
+
+
+        <!-- DESCRIÇÃO -->
+
+        <p class="descricao">
+
+            Educação que transforma,
+            conhecimento que constrói
+            o futuro.
+
+        </p>
+
+
+        <!-- =================================================
+             BOTÃO SABER MAIS
+        ================================================== -->
+
+        <a
+
+            href="carregamento.html"
+
+            class="botao"
+
+            id="botaoSaberMais"
+
+        >
+
+            SABER MAIS
+
+            <span>
+
+                →
+
+            </span>
+
+        </a>
+
+
+    </div>
+
+
+    <!-- =================================================
+         FRASE LATERAL
+    ================================================== -->
+
+    <div class="frase">
+
+        EDUCAÇÃO • CONHECIMENTO • FUTURO
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =================================================
+   CURSOR
+================================================= */
+
+const cursor =
+    document.querySelector(".cursor");
+
+
+const ring =
+    document.querySelector(".cursor-ring");
+
+
+document.addEventListener(
+
+    "mousemove",
+
+    function(e) {
+
+
+        if (cursor) {
+
+            cursor.style.transform =
+
+                `translate(
+
+                    ${e.clientX}px,
+
+                    ${e.clientY}px
+
+                )`;
+
+        }
+
+
+        if (ring) {
+
+            ring.style.transform =
+
+                `translate(
+
+                    ${e.clientX - 19}px,
+
+                    ${e.clientY - 19}px
+
+                )`;
+
+        }
+
+
+    }
+
+);
+
+
+/* =================================================
+   HOVER DO MENU E BOTÃO
+================================================= */
+
+const links =
+    document.querySelectorAll(
+
+        ".menu a, .botao"
+
+    );
+
+
+links.forEach(
+
+    function(link) {
+
+
+        link.addEventListener(
+
+            "mouseenter",
+
+            function() {
+
+
+                if (ring) {
+
+                    ring.style.width =
+                        "55px";
+
+                    ring.style.height =
+                        "55px";
+
+                }
+
+
+            }
+
+        );
+
+
+        link.addEventListener(
+
+            "mouseleave",
+
+            function() {
+
+
+                if (ring) {
+
+                    ring.style.width =
+                        "38px";
+
+                    ring.style.height =
+                        "38px";
+
+                }
+
+
+            }
+
+        );
+
+
+    }
+
+);
+
+
+/* =================================================
+   BOTÃO SABER MAIS
+================================================= */
+
+const botao =
+
+    document.getElementById(
+
+        "botaoSaberMais"
+
+    );
+
+
+if (botao) {
+
+
+    botao.addEventListener(
+
+        "click",
+
+        function() {
+
+            botao.style.opacity =
+                ".6";
+
+        }
+
+    );
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Futuro | Escola Estadual José de Alencar</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #05080e;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   CORES
+========================================================= */
+
+:root {
+    --black: #05080e;
+    --deep: #07111f;
+    --blue: #1769d2;
+    --electric: #4d9cff;
+    --white: #ffffff;
+    --gray: rgba(255,255,255,.65);
+    --line: rgba(255,255,255,.12);
+}
+
+
+/* =========================================================
+   CURSOR
+========================================================= */
+
+.cursor {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+    position: fixed;
+    width: 35px;
+    height: 35px;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: .15s ease;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5vw;
+
+    z-index: 500;
+
+    background: rgba(5,8,14,.35);
+    backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+}
+
+nav a {
+    color: rgba(255,255,255,.65);
+    text-decoration: none;
+
+    font-size: 10px;
+    letter-spacing: 3px;
+
+    transition: .3s;
+}
+
+nav a:hover {
+    color: white;
+}
+
+
+/* =========================================================
+   BOTÃO VOLTAR
+========================================================= */
+
+.voltar {
+    position: fixed;
+
+    top: 115px;
+    left: 5vw;
+
+    z-index: 600;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 18px;
+
+    color: rgba(255,255,255,.7);
+
+    text-decoration: none;
+
+    font-size: 9px;
+    letter-spacing: 3px;
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    background: rgba(5,8,14,.35);
+
+    backdrop-filter: blur(15px);
+
+    transition: .4s ease;
+}
+
+.voltar span {
+    font-size: 18px;
+    line-height: 1;
+
+    transition: .4s ease;
+}
+
+.voltar:hover {
+    color: white;
+
+    border-color: rgba(77,156,255,.7);
+
+    background: rgba(23,105,210,.15);
+
+    transform: translateX(-5px);
+}
+
+.voltar:hover span {
+    transform: translateX(-5px);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 8vw;
+
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 75% 40%,
+            rgba(23,105,210,.23),
+            transparent 40%
+        ),
+
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(77,156,255,.08),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #05080e,
+            #07111f
+        );
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: -180px;
+    bottom: -200px;
+
+    border: 1px solid rgba(77,156,255,.12);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 100px rgba(23,105,210,.08);
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 1000px;
+}
+
+.hero-small {
+    color: var(--electric);
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(55px, 8vw, 125px);
+
+    font-weight: 400;
+
+    line-height: .95;
+
+    margin-bottom: 40px;
+}
+
+.hero h1 span {
+    color: var(--electric);
+
+    font-style: italic;
+}
+
+.hero p {
+    max-width: 750px;
+
+    color: var(--gray);
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   FOTOS DO HERO
+========================================================= */
+
+.hero-fotos {
+    position: absolute;
+
+    right: 7vw;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 300px;
+    height: 500px;
+
+    z-index: 3;
+}
+
+
+/* FOTO DE CIMA */
+
+.foto-turma {
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    right: 30px;
+    top: 0;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border: 5px solid rgba(255,255,255,.9);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.45),
+        0 0 45px rgba(77,156,255,.12);
+
+    transform: rotate(4deg);
+
+    transition: .5s ease;
+}
+
+.foto-turma img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: .5s ease;
+}
+
+
+/* FOTO DE BAIXO */
+
+.foto-fut {
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    right: 85px;
+    bottom: 0;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border: 5px solid rgba(255,255,255,.9);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.5),
+        0 0 45px rgba(77,156,255,.12);
+
+    transform: rotate(-5deg);
+
+    transition: .5s ease;
+}
+
+.foto-fut img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: .5s ease;
+}
+
+
+/* EFEITO AO PASSAR O MOUSE */
+
+.foto-turma:hover {
+    transform: rotate(0deg) scale(1.06);
+
+    z-index: 5;
+}
+
+.foto-fut:hover {
+    transform: rotate(0deg) scale(1.06);
+
+    z-index: 5;
+}
+
+.foto-turma:hover img,
+.foto-fut:hover img {
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
+
+section {
+    position: relative;
+
+    padding: 140px 8vw;
+}
+
+.section-number {
+    color: var(--electric);
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(45px, 6vw, 80px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    margin-bottom: 30px;
+}
+
+.section-title em {
+    color: var(--electric);
+}
+
+.section-text {
+    max-width: 850px;
+
+    color: var(--gray);
+
+    font-size: 17px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.cards {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-top: 70px;
+}
+
+.card {
+    padding: 45px 35px;
+
+    border: 1px solid var(--line);
+
+    background: rgba(255,255,255,.025);
+
+    transition: .4s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(77,156,255,.5);
+
+    background: rgba(23,105,210,.08);
+}
+
+.card-number {
+    color: var(--electric);
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 30px;
+}
+
+.card h3 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 30px;
+
+    font-weight: 400;
+
+    margin-bottom: 20px;
+}
+
+.card p {
+    color: var(--gray);
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   DESTAQUE
+========================================================= */
+
+.destaque {
+    min-height: 600px;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(23,105,210,.20),
+            transparent 55%
+        ),
+
+        linear-gradient(
+            135deg,
+            #07111f,
+            #05080e
+        );
+
+    border-top: 1px solid rgba(255,255,255,.06);
+
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.destaque-content {
+    max-width: 1000px;
+}
+
+
+/* =========================================================
+   IMAGEM DO DESTAQUE
+========================================================= */
+
+.destaque-imagem {
+    width: 100%;
+
+    margin-top: 60px;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    overflow: hidden;
+
+    background: #05080e;
+}
+
+.destaque-imagem img {
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   VISÃO DE FUTURO
+========================================================= */
+
+.visao {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    align-items: center;
+}
+
+.visao-texto {
+    max-width: 650px;
+}
+
+.visao-texto h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(45px, 5vw, 70px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    margin-bottom: 30px;
+}
+
+.visao-texto h2 span {
+    color: var(--electric);
+}
+
+.visao-texto p {
+    color: var(--gray);
+
+    font-size: 16px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   CÍRCULO DO FUTURO
+========================================================= */
+
+.circulo {
+    width: min(420px, 80vw);
+
+    height: min(420px, 80vw);
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(77,156,255,.35);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(23,105,210,.22),
+            rgba(5,8,14,.05) 65%
+        );
+
+    box-shadow:
+        0 0 90px rgba(23,105,210,.12);
+}
+
+.circulo::before {
+    content: "";
+
+    position: absolute;
+
+    width: 70%;
+
+    height: 70%;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.12);
+}
+
+.circulo::after {
+    content: "";
+
+    position: absolute;
+
+    width: 45%;
+    height: 45%;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(77,156,255,.18);
+}
+
+.circulo-texto {
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+}
+
+.circulo-texto strong {
+    display: block;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 55px;
+
+    font-weight: 400;
+
+    color: white;
+}
+
+.circulo-texto span {
+    display: block;
+
+    color: var(--electric);
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================================
+   POSSIBILIDADES
+========================================================= */
+
+.lista {
+    margin-top: 60px;
+
+    max-width: 1000px;
+}
+
+.lista-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 28px 0;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.lista-item span {
+    color: var(--electric);
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    min-width: 35px;
+}
+
+.lista-item div {
+    flex: 1;
+}
+
+.lista-item h3 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 25px;
+
+    font-weight: 400;
+
+    margin-bottom: 8px;
+}
+
+.lista-item p {
+    color: rgba(255,255,255,.6);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   FRASE FINAL
+========================================================= */
+
+.final {
+    min-height: 70vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding-left: 10vw;
+
+    padding-right: 10vw;
+}
+
+.final-content {
+    max-width: 1050px;
+}
+
+.final-small {
+    color: var(--electric);
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 30px;
+}
+
+.final h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(45px, 7vw, 95px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+}
+
+.final h2 span {
+    color: var(--electric);
+
+    font-style: italic;
+}
+
+.final p {
+    margin: 35px auto 0;
+
+    max-width: 700px;
+
+    color: var(--gray);
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 80px 8vw;
+
+    border-top: 1px solid var(--line);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+footer p {
+    color: rgba(255,255,255,.45);
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+footer a {
+    color: rgba(255,255,255,.65);
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    transition: .3s;
+}
+
+footer a:hover {
+    color: white;
+}
+
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media(max-width: 1000px) {
+
+    .hero-fotos {
+        right: 3vw;
+
+        width: 230px;
+        height: 400px;
+    }
+
+    .foto-turma,
+    .foto-fut {
+        width: 165px;
+        height: 165px;
+    }
+
+    .foto-turma {
+        right: 10px;
+    }
+
+    .foto-fut {
+        right: 45px;
+    }
+
+    .hero-content {
+        max-width: 65%;
+    }
+
+}
+
+@media(max-width: 800px) {
+
+    header {
+        height: 75px;
+
+        padding: 0 6vw;
+    }
+
+    nav {
+        display: none;
+    }
+
+    section {
+        padding: 100px 6vw;
+    }
+
+    .hero {
+        padding: 0 6vw;
+
+        align-items: center;
+    }
+
+    .hero h1 {
+        font-size: clamp(50px, 15vw, 80px);
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-fotos {
+        position: absolute;
+
+        right: 3vw;
+
+        top: auto;
+        bottom: 25px;
+
+        transform: none;
+
+        width: 190px;
+        height: 210px;
+
+        opacity: .9;
+    }
+
+    .foto-turma,
+    .foto-fut {
+        width: 120px;
+        height: 120px;
+    }
+
+    .foto-turma {
+        right: 10px;
+        top: 0;
+    }
+
+    .foto-fut {
+        right: 50px;
+        bottom: 0;
+    }
+
+    .hero p {
+        max-width: 90%;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .visao {
+        grid-template-columns: 1fr;
+
+        gap: 70px;
+    }
+
+    .circulo {
+        width: 300px;
+        height: 300px;
+    }
+
+    .circulo-texto strong {
+        font-size: 42px;
+    }
+
+    .voltar {
+        top: 90px;
+
+        left: 6vw;
+
+        padding: 10px 14px;
+
+        font-size: 8px;
+    }
+
+    .destaque-imagem {
+        margin-top: 45px;
+    }
+
+    footer {
+        flex-direction: column;
+
+        gap: 25px;
+
+        text-align: center;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     BOTÃO VOLTAR PARA SOBRE.HTML
+========================================================= -->
+
+<a href="sobre.html" class="voltar">
+
+    <span>←</span>
+
+    VOLTAR PARA A ESCOLA
+
+</a>
+
+
+<!-- =========================================================
+     CURSOR
+========================================================= -->
+
+<div class="cursor"></div>
+
+<div class="cursor-ring"></div>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <a href="sobre.html" class="logo">
+        JOSÉ DE ALENCAR
+    </a>
+
+    <nav>
+
+        <a href="sobre.html">
+            ESCOLA
+        </a>
+
+        <a href="conhecimento.html">
+            CONHECIMENTO
+        </a>
+
+        <a href="comunidade.html">
+            COMUNIDADE
+        </a>
+
+        <a href="#futuro">
+            FUTURO
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            ESCOLA ESTADUAL JOSÉ DE ALENCAR
+        </div>
+
+        <h1>
+
+            O futuro começa
+            <span>agora.</span>
+
+        </h1>
+
+        <p>
+
+            Preparar pessoas para imaginar, criar e construir
+            novas possibilidades. A educação transforma o
+            presente e abre caminhos para aquilo que ainda
+            está por vir.
+
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         DUAS FOTOS
+    ====================================================== -->
+
+    <div class="hero-fotos">
+
+        <div class="foto-turma">
+
+            <img src="turma.jpg" alt="Turma da Escola Estadual José de Alencar">
+
+        </div>
+
+
+        <div class="foto-fut">
+
+            <img src="fut.jpg" alt="Futuro e estudantes">
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================================================
+     FUTURO
+========================================================= -->
+
+<section id="futuro">
+
+    <div class="section-number">
+        01 — FUTURO
+    </div>
+
+    <h2 class="section-title">
+
+        Imaginar é o primeiro passo<br>
+
+        para <em>criar.</em>
+
+    </h2>
+
+    <p class="section-text">
+
+        O futuro não é apenas algo que esperamos.
+        Ele também é algo que podemos imaginar,
+        construir e transformar.
+
+        Na escola, cada conhecimento adquirido,
+        cada projeto desenvolvido e cada nova ideia
+        representa uma possibilidade para o amanhã.
+
+    </p>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="card-number">
+                01
+            </div>
+
+            <h3>
+                Imaginar
+            </h3>
+
+            <p>
+
+                Desenvolver a curiosidade e enxergar
+                possibilidades diferentes para os desafios
+                do mundo.
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-number">
+                02
+            </div>
+
+            <h3>
+                Criar
+            </h3>
+
+            <p>
+
+                Transformar ideias em projetos, soluções
+                e experiências que podem fazer diferença
+                na sociedade.
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-number">
+                03
+            </div>
+
+            <h3>
+                Construir
+            </h3>
+
+            <p>
+
+                Utilizar conhecimento, criatividade e
+                colaboração para construir novas
+                possibilidades para o futuro.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DESTAQUE
+========================================================= -->
+
+<section class="destaque">
+
+    <div class="destaque-content">
+
+        <div class="section-number">
+            02 — POSSIBILIDADES
+        </div>
+
+        <h2>
+
+            O amanhã começa
+            <span>com as ideias de hoje.</span>
+
+        </h2>
+
+        <p class="section-text">
+
+            Cada estudante possui sonhos, habilidades
+            e ideias que podem se transformar em novas
+            possibilidades.
+
+            A escola contribui para que essas ideias
+            encontrem espaço para crescer.
+
+        </p>
+
+
+        <div class="destaque-imagem">
+
+            <img src="antigo.jpg" alt="Escola Estadual José de Alencar">
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     VISÃO DE FUTURO
+========================================================= -->
+
+<section>
+
+    <div class="visao">
+
+
+        <div class="visao-texto">
+
+            <div class="section-number">
+                03 — VISÃO
+            </div>
+
+            <h2>
+
+                Preparar para o que
+                <span>ainda não existe.</span>
+
+            </h2>
+
+            <p>
+
+                O mundo está sempre mudando.
+
+                Novas tecnologias surgem, novas profissões
+                aparecem e novos desafios são apresentados.
+
+                Por isso, preparar para o futuro também
+                significa desenvolver autonomia, criatividade,
+                pensamento crítico e capacidade de aprender
+                continuamente.
+
+            </p>
+
+        </div>
+
+
+        <div class="circulo">
+
+            <div class="circulo-texto">
+
+                <strong>
+                    AMANHÃ
+                </strong>
+
+                <span>
+                    IMAGINAR • CRIAR • CONSTRUIR
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CAMINHOS
+========================================================= -->
+
+<section>
+
+    <div class="section-number">
+        04 — CAMINHOS
+    </div>
+
+    <h2 class="section-title">
+
+        Novas possibilidades<br>
+
+        começam com <em>novas ideias.</em>
+
+    </h2>
+
+    <p class="section-text">
+
+        A educação oferece ferramentas para que os
+        estudantes possam descobrir seus próprios caminhos
+        e participar da construção do futuro.
+
+    </p>
+
+
+    <div class="lista">
+
+
+        <div class="lista-item">
+
+            <span>
+                01
+            </span>
+
+            <div>
+
+                <h3>
+                    Tecnologia
+                </h3>
+
+                <p>
+
+                    Utilizar recursos tecnológicos para
+                    aprender, criar e desenvolver soluções.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="lista-item">
+
+            <span>
+                02
+            </span>
+
+            <div>
+
+                <h3>
+                    Criatividade
+                </h3>
+
+                <p>
+
+                    Encontrar novas formas de pensar,
+                    experimentar e resolver problemas.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="lista-item">
+
+            <span>
+                03
+            </span>
+
+            <div>
+
+                <h3>
+                    Conhecimento
+                </h3>
+
+                <p>
+
+                    Transformar aquilo que aprendemos em
+                    ferramentas para construir novas ideias.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="lista-item">
+
+            <span>
+                04
+            </span>
+
+            <div>
+
+                <h3>
+                    Protagonismo
+                </h3>
+
+                <p>
+
+                    Incentivar cada estudante a participar
+                    ativamente da construção do próprio futuro.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FRASE FINAL
+========================================================= -->
+
+<section class="final">
+
+    <div class="final-content">
+
+        <div class="final-small">
+            ESCOLA ESTADUAL JOSÉ DE ALENCAR
+        </div>
+
+        <h2>
+
+            O futuro pertence a quem
+            <span>ousa imaginar.</span>
+
+        </h2>
+
+        <p>
+
+            Preparar pessoas para imaginar, criar e construir
+            novas possibilidades é também acreditar que cada
+            estudante pode contribuir para transformar o mundo
+            ao seu redor.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <p>
+        ESCOLA ESTADUAL JOSÉ DE ALENCAR
+    </p>
+
+    <a href="sobre.html">
+        VOLTAR PARA A ESCOLA ↑
+    </a>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+const cursor = document.querySelector(".cursor");
+
+const ring = document.querySelector(".cursor-ring");
+
+
+document.addEventListener("mousemove", function(e) {
+
+    cursor.style.left = e.clientX + "px";
+
+    cursor.style.top = e.clientY + "px";
+
+
+    ring.style.left = e.clientX + "px";
+
+    ring.style.top = e.clientY + "px";
+
+});
+
+</script>
+
+
+</body>
+
+</html>

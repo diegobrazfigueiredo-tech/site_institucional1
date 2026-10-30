@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Comunidade | Escola Estadual José de Alencar</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #05080e;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   CORES
+========================================================= */
+
+:root {
+    --black: #05080e;
+    --deep: #07111f;
+    --blue: #1769d2;
+    --electric: #4d9cff;
+    --white: #ffffff;
+    --gray: rgba(255,255,255,.65);
+    --line: rgba(255,255,255,.12);
+}
+
+
+/* =========================================================
+   CURSOR
+========================================================= */
+
+.cursor {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+    position: fixed;
+    width: 35px;
+    height: 35px;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: .15s ease;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5vw;
+
+    z-index: 500;
+
+    background: rgba(5,8,14,.35);
+    backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+}
+
+nav a {
+    color: rgba(255,255,255,.65);
+    text-decoration: none;
+
+    font-size: 10px;
+    letter-spacing: 3px;
+
+    transition: .3s;
+}
+
+nav a:hover {
+    color: white;
+}
+
+
+/* =========================================================
+   BOTÃO VOLTAR
+========================================================= */
+
+.voltar {
+    position: fixed;
+
+    top: 115px;
+    left: 5vw;
+
+    z-index: 600;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 18px;
+
+    color: rgba(255,255,255,.7);
+
+    text-decoration: none;
+
+    font-size: 9px;
+    letter-spacing: 3px;
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    background: rgba(5,8,14,.35);
+
+    backdrop-filter: blur(15px);
+
+    transition: .4s ease;
+}
+
+.voltar span {
+    font-size: 18px;
+    line-height: 1;
+
+    transition: .4s ease;
+}
+
+.voltar:hover {
+    color: white;
+
+    border-color: rgba(77,156,255,.7);
+
+    background: rgba(23,105,210,.15);
+
+    transform: translateX(-5px);
+}
+
+.voltar:hover span {
+    transform: translateX(-5px);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 8vw;
+
+    overflow: hidden;
+}
+
+/* IMAGEM PASSADO.JPG */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5,8,14,.88),
+            rgba(5,8,14,.48),
+            rgba(5,8,14,.60)
+        ),
+        linear-gradient(
+            135deg,
+            rgba(7,17,31,.45),
+            rgba(23,105,210,.15)
+        ),
+        url("passado.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transform: scale(1.02);
+
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 950px;
+}
+
+.hero-small {
+    color: var(--electric);
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(55px, 8vw, 120px);
+
+    font-weight: 400;
+
+    line-height: .95;
+
+    margin-bottom: 40px;
+}
+
+.hero h1 span {
+    color: var(--electric);
+
+    font-style: italic;
+}
+
+.hero p {
+    max-width: 720px;
+
+    color: var(--gray);
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
+
+section {
+    position: relative;
+
+    padding: 140px 8vw;
+}
+
+.section-number {
+    color: var(--electric);
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(45px, 6vw, 80px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    margin-bottom: 30px;
+}
+
+.section-title em {
+    color: var(--electric);
+}
+
+.section-text {
+    max-width: 850px;
+
+    color: var(--gray);
+
+    font-size: 17px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.cards {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-top: 70px;
+}
+
+.card {
+    padding: 45px 35px;
+
+    border: 1px solid var(--line);
+
+    background: rgba(255,255,255,.025);
+
+    transition: .4s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(77,156,255,.5);
+
+    background: rgba(23,105,210,.08);
+}
+
+.card-number {
+    color: var(--electric);
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 30px;
+}
+
+.card h3 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 30px;
+
+    font-weight: 400;
+
+    margin-bottom: 20px;
+}
+
+.card p {
+    color: var(--gray);
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   FRASE DESTAQUE
+========================================================= */
+
+.destaque {
+    min-height: 600px;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(23,105,210,.18),
+            transparent 55%
+        ),
+
+        linear-gradient(
+            135deg,
+            #07111f,
+            #05080e
+        );
+
+    border-top: 1px solid rgba(255,255,255,.06);
+
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.destaque-content {
+    max-width: 950px;
+}
+
+.destaque h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(50px, 7vw, 100px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    margin-bottom: 35px;
+}
+
+.destaque h2 span {
+    color: var(--electric);
+}
+
+
+/* =========================================================
+   CAMINHANDO JUNTOS
+========================================================= */
+
+.juntos {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    align-items: center;
+}
+
+.juntos-texto {
+    max-width: 650px;
+}
+
+.juntos-texto h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(45px, 5vw, 70px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    margin-bottom: 30px;
+}
+
+.juntos-texto h2 span {
+    color: var(--electric);
+}
+
+.juntos-texto p {
+    color: var(--gray);
+
+    font-size: 16px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   CÍRCULO VISUAL
+========================================================= */
+
+.circulo {
+    width: min(420px, 80vw);
+
+    height: min(420px, 80vw);
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(77,156,255,.35);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(23,105,210,.20),
+            rgba(5,8,14,.05) 65%
+        );
+
+    box-shadow:
+        0 0 80px rgba(23,105,210,.12);
+}
+
+.circulo::before {
+    content: "";
+
+    position: absolute;
+
+    width: 70%;
+
+    height: 70%;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.12);
+}
+
+.circulo-texto {
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+}
+
+.circulo-texto strong {
+    display: block;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 55px;
+
+    font-weight: 400;
+
+    color: white;
+}
+
+.circulo-texto span {
+    display: block;
+
+    color: var(--electric);
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================================
+   LISTA
+========================================================= */
+
+.lista {
+    margin-top: 60px;
+
+    max-width: 1000px;
+}
+
+.lista-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 28px 0;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.lista-item span {
+    color: var(--electric);
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    min-width: 35px;
+}
+
+.lista-item div {
+    flex: 1;
+}
+
+.lista-item h3 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 25px;
+
+    font-weight: 400;
+
+    margin-bottom: 8px;
+}
+
+.lista-item p {
+    color: rgba(255,255,255,.6);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   FRASE FINAL
+========================================================= */
+
+.final {
+    min-height: 70vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding-left: 10vw;
+
+    padding-right: 10vw;
+}
+
+.final-content {
+    max-width: 1000px;
+}
+
+.final-small {
+    color: var(--electric);
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 30px;
+}
+
+.final h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(45px, 7vw, 95px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+}
+
+.final h2 span {
+    color: var(--electric);
+
+    font-style: italic;
+}
+
+.final p {
+    margin: 35px auto 0;
+
+    max-width: 650px;
+
+    color: var(--gray);
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 80px 8vw;
+
+    border-top: 1px solid var(--line);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+footer p {
+    color: rgba(255,255,255,.45);
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+footer a {
+    color: rgba(255,255,255,.65);
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    transition: .3s;
+}
+
+footer a:hover {
+    color: white;
+}
+
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media(max-width: 800px) {
+
+    header {
+        height: 75px;
+
+        padding: 0 6vw;
+    }
+
+    nav {
+        display: none;
+    }
+
+    section {
+        padding: 100px 6vw;
+    }
+
+    .hero {
+        padding: 0 6vw;
+    }
+
+    .hero h1 {
+        font-size: clamp(50px, 15vw, 80px);
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .juntos {
+        grid-template-columns: 1fr;
+
+        gap: 70px;
+    }
+
+    .circulo {
+        width: 300px;
+        height: 300px;
+    }
+
+    .circulo-texto strong {
+        font-size: 42px;
+    }
+
+    .voltar {
+        top: 90px;
+
+        left: 6vw;
+
+        padding: 10px 14px;
+
+        font-size: 8px;
+    }
+
+    footer {
+        flex-direction: column;
+
+        gap: 25px;
+
+        text-align: center;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     BOTÃO VOLTAR PARA SOBRE.HTML
+========================================================= -->
+
+<a href="sobre.html" class="voltar">
+
+    <span>←</span>
+
+    VOLTAR PARA A ESCOLA
+
+</a>
+
+
+<!-- =========================================================
+     CURSOR
+========================================================= -->
+
+<div class="cursor"></div>
+
+<div class="cursor-ring"></div>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <a href="sobre.html" class="logo">
+        JOSÉ DE ALENCAR
+    </a>
+
+    <nav>
+
+        <a href="sobre.html">
+            ESCOLA
+        </a>
+
+        <a href="conhecimento.html">
+            CONHECIMENTO
+        </a>
+
+        <a href="#comunidade">
+            COMUNIDADE
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            ESCOLA • FAMÍLIA • COMUNIDADE
+        </div>
+
+        <h1>
+
+            Caminhando
+            <span>juntos.</span>
+
+        </h1>
+
+        <p>
+
+            Uma escola se torna ainda mais forte quando
+            estudantes, professores, famílias e comunidade
+            caminham na mesma direção, compartilhando
+            experiências, responsabilidades e sonhos.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     COMUNIDADE
+========================================================= -->
+
+<section id="comunidade">
+
+    <div class="section-number">
+        01 — COMUNIDADE
+    </div>
+
+    <h2 class="section-title">
+
+        Uma escola<br>
+
+        <em>construída por todos.</em>
+
+    </h2>
+
+    <p class="section-text">
+
+        A comunidade escolar é formada por diferentes
+        pessoas que contribuem diariamente para tornar
+        a escola um espaço de aprendizagem, convivência,
+        participação e transformação.
+
+        Quando escola, estudantes, professores e famílias
+        trabalham juntos, novas possibilidades surgem
+        dentro e fora da sala de aula.
+
+    </p>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="card-number">
+                01
+            </div>
+
+            <h3>
+                Estudantes
+            </h3>
+
+            <p>
+
+                São protagonistas da vida escolar,
+                trazendo ideias, sonhos, criatividade
+                e diferentes formas de enxergar o mundo.
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-number">
+                02
+            </div>
+
+            <h3>
+                Professores
+            </h3>
+
+            <p>
+
+                Compartilham conhecimento, acompanham
+                os estudantes e ajudam a transformar
+                desafios em oportunidades de aprendizagem.
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-number">
+                03
+            </div>
+
+            <h3>
+                Famílias
+            </h3>
+
+            <p>
+
+                Participam da formação dos estudantes,
+                fortalecendo os vínculos entre a escola,
+                a casa e a comunidade.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DESTAQUE
+========================================================= -->
+
+<section class="destaque">
+
+    <div class="destaque-content">
+
+        <div class="section-number">
+            02 — PARTICIPAÇÃO
+        </div>
+
+        <h2>
+
+            Quando todos participam,
+            <span>a escola cresce.</span>
+
+        </h2>
+
+        <p class="section-text">
+
+            A educação acontece através da troca.
+            Cada pessoa possui experiências, conhecimentos
+            e perspectivas que podem contribuir para
+            construir uma comunidade escolar mais próxima,
+            participativa e acolhedora.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CAMINHANDO JUNTOS
+========================================================= -->
+
+<section>
+
+    <div class="juntos">
+
+
+        <div class="juntos-texto">
+
+            <div class="section-number">
+                03 — UNIÃO
+            </div>
+
+            <h2>
+
+                Diferentes pessoas.
+                <span>Um mesmo caminho.</span>
+
+            </h2>
+
+            <p>
+
+                Escola, estudantes, professores, famílias
+                e comunidade possuem diferentes papéis,
+                mas compartilham um objetivo:
+
+                contribuir para uma educação que prepare
+                os jovens para o presente e para o futuro.
+
+                O diálogo e a participação tornam esse
+                caminho ainda mais significativo.
+
+            </p>
+
+        </div>
+
+
+        <div class="circulo">
+
+            <div class="circulo-texto">
+
+                <strong>
+                    JUNTOS
+                </strong>
+
+                <span>
+                    ESCOLA + FAMÍLIA + COMUNIDADE
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FORMAS DE PARTICIPAÇÃO
+========================================================= -->
+
+<section>
+
+    <div class="section-number">
+        04 — PARTICIPAÇÃO
+    </div>
+
+    <h2 class="section-title">
+
+        Cada pessoa<br>
+
+        <em>faz parte.</em>
+
+    </h2>
+
+    <p class="section-text">
+
+        Uma comunidade escolar participativa é construída
+        através de pequenas e grandes atitudes. Escutar,
+        dialogar, colaborar e compartilhar são formas de
+        fortalecer os vínculos entre todos.
+
+    </p>
+
+
+    <div class="lista">
+
+
+        <div class="lista-item">
+
+            <span>
+                01
+            </span>
+
+            <div>
+
+                <h3>
+                    Diálogo
+                </h3>
+
+                <p>
+
+                    Criar espaços para ouvir diferentes
+                    ideias, experiências e necessidades.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="lista-item">
+
+            <span>
+                02
+            </span>
+
+            <div>
+
+                <h3>
+                    Colaboração
+                </h3>
+
+                <p>
+
+                    Trabalhar em conjunto para encontrar
+                    soluções e desenvolver novos projetos.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="lista-item">
+
+            <span>
+                03
+            </span>
+
+            <div>
+
+                <h3>
+                    Participação
+                </h3>
+
+                <p>
+
+                    Estar presente na vida escolar e
+                    contribuir para suas decisões e atividades.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="lista-item">
+
+            <span>
+                04
+            </span>
+
+            <div>
+
+                <h3>
+                    Pertencimento
+                </h3>
+
+                <p>
+
+                    Reconhecer a escola como um espaço
+                    construído e compartilhado por todos.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FRASE FINAL
+========================================================= -->
+
+<section class="final">
+
+    <div class="final-content">
+
+        <div class="final-small">
+            ESCOLA ESTADUAL JOSÉ DE ALENCAR
+        </div>
+
+        <h2>
+
+            O futuro começa
+            <span>quando caminhamos juntos.</span>
+
+        </h2>
+
+        <p>
+
+            Cada estudante, professor, família e membro
+            da comunidade faz parte dessa história.
+
+            Juntos, construímos uma escola mais próxima,
+            participativa e preparada para o futuro.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <p>
+        ESCOLA ESTADUAL JOSÉ DE ALENCAR
+    </p>
+
+    <a href="sobre.html">
+        VOLTAR PARA A ESCOLA ↑
+    </a>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+const cursor = document.querySelector(".cursor");
+
+const ring = document.querySelector(".cursor-ring");
+
+
+document.addEventListener("mousemove", function(e) {
+
+    cursor.style.left = e.clientX + "px";
+
+    cursor.style.top = e.clientY + "px";
+
+
+    ring.style.left = e.clientX + "px";
+
+    ring.style.top = e.clientY + "px";
+
+});
+
+</script>
+
+
+</body>
+
+</html>

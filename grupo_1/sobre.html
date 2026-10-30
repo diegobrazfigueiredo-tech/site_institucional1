@@ -1,0 +1,2418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Escola Estadual José de Alencar | Machacalis - MG</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #05080e;
+    color: #ffffff;
+    font-family: "Manrope", sans-serif;
+    overflow-x: hidden;
+}
+
+:root {
+    --black: #05080e;
+    --deep: #07111f;
+    --blue: #1769d2;
+    --electric: #4d9cff;
+    --white: #ffffff;
+    --muted: rgba(255,255,255,.55);
+    --line: rgba(255,255,255,.1);
+}
+
+::selection {
+    background: #3d8cff;
+    color: white;
+}
+
+
+/* =========================================================
+   TEXTURA
+========================================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: .035;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+
+/* =========================================================
+   CURSOR
+========================================================= */
+
+.cursor {
+    width: 8px;
+    height: 8px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    border-radius: 50%;
+
+    background: white;
+
+    pointer-events: none;
+
+    z-index: 10000;
+
+    mix-blend-mode: difference;
+}
+
+.cursor-ring {
+    width: 40px;
+    height: 40px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    border: 1px solid rgba(255,255,255,.5);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    transition:
+        width .3s ease,
+        height .3s ease;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 90px;
+
+    padding: 0 5vw;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    z-index: 500;
+
+    background:
+        linear-gradient(
+            rgba(5,8,14,.35),
+            transparent
+        );
+}
+
+.logo {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    font-weight: 600;
+}
+
+.logo span {
+    display: block;
+
+    color: rgba(255,255,255,.5);
+
+    font-size: 7px;
+
+    letter-spacing: 4px;
+
+    margin-top: 7px;
+}
+
+.menu {
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+}
+
+.menu a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    opacity: .65;
+
+    transition: .3s;
+}
+
+.menu a:hover {
+    opacity: 1;
+
+    color: #70aaff;
+}
+
+.menu-circle {
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid rgba(255,255,255,.25);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================================================
+   PRIMEIRA PÁGINA / HERO
+========================================================= */
+
+.hero {
+    height: 100vh;
+
+    min-height: 720px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(23,105,210,.25),
+            transparent 40%
+        ),
+
+        #05080e;
+}
+
+
+/* =========================================================
+   VÍDEO PRINCIPAL
+========================================================= */
+
+.hero-video {
+    position: absolute;
+
+    top: 5%;
+    left: 5%;
+
+    width: 90%;
+    height: 90%;
+
+    object-fit: cover;
+
+    z-index: 0;
+
+    filter:
+        brightness(.75)
+        saturate(.8)
+        contrast(1.05);
+
+    transform: scale(1.05);
+
+    transition: transform .4s ease;
+
+    display: block;
+}
+
+
+/* =========================================================
+   CAMADA SOBRE O VÍDEO
+========================================================= */
+
+.hero-video-overlay {
+    position: absolute;
+
+    top: 5%;
+    left: 5%;
+
+    width: 90%;
+    height: 90%;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            rgba(5,8,14,.15),
+            rgba(5,8,14,.78)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+}
+
+
+/* =========================================================
+   BRILHO AZUL
+========================================================= */
+
+.hero-glow {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    left: 50%;
+    top: 45%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(31,116,255,.18);
+
+    filter: blur(120px);
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTEÚDO DO HERO
+========================================================= */
+
+.hero-content {
+    position: relative;
+
+    z-index: 10;
+
+    width: 90%;
+
+    max-width: 1500px;
+}
+
+.hero-meta {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 40px;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color:
+        rgba(255,255,255,.7);
+}
+
+.hero-meta .status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.status-dot {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #57a0ff;
+
+    box-shadow:
+        0 0 15px #57a0ff;
+}
+
+.hero-title {
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:
+        clamp(70px, 13vw, 210px);
+
+    font-weight: 300;
+
+    line-height: .78;
+
+    letter-spacing: -.075em;
+
+    text-transform: uppercase;
+}
+
+.hero-title .line {
+    display: block;
+}
+
+.hero-title .light {
+    color:
+        rgba(255,255,255,.55);
+}
+
+.hero-title .italic {
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-style: italic;
+
+    color:
+        #70aaff;
+}
+
+.hero-footer {
+    margin-top: 70px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+}
+
+.hero-description {
+    width: 350px;
+
+    color:
+        rgba(255,255,255,.7);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.scroll-indicator {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 15px;
+
+    color:
+        rgba(255,255,255,.5);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 65px;
+
+    background:
+        linear-gradient(
+            white,
+            transparent
+        );
+}
+
+
+/* =========================================================
+   INTRODUÇÃO
+========================================================= */
+
+.intro {
+    min-height: 100vh;
+
+    padding:
+        15vh 8vw;
+
+    display: grid;
+
+    grid-template-columns:
+        .7fr 1.3fr;
+
+    align-items: center;
+
+    gap: 10vw;
+
+    background:
+        #07111f;
+}
+
+.intro-number {
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color:
+        var(--electric);
+}
+
+.intro h2 {
+    margin-top: 25px;
+
+    font-size:
+        clamp(50px, 6vw, 100px);
+
+    font-weight: 300;
+
+    line-height: .9;
+
+    letter-spacing: -.06em;
+}
+
+.intro h2 em {
+    font-family:
+        "Playfair Display",
+        serif;
+
+    color:
+        var(--electric);
+}
+
+.intro-text {
+    max-width: 700px;
+
+    color:
+        rgba(255,255,255,.58);
+
+    font-size: 18px;
+
+    line-height: 2;
+}
+
+.intro-text p {
+    margin-bottom: 30px;
+}
+
+.intro-text strong {
+    color: white;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   DESTAQUE VISUAL
+========================================================= */
+
+.full-visual {
+    min-height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 70% 40%,
+            rgba(23,105,210,.28),
+            transparent 40%
+        ),
+
+        #05080e;
+}
+
+.full-visual-image {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 70% 40%,
+            rgba(23,105,210,.25),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #07111f,
+            #05080e
+        );
+
+    z-index: 0;
+}
+
+.full-visual-content {
+    position: relative;
+
+    left: 7vw;
+
+    z-index: 2;
+}
+
+.full-visual-content small {
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color:
+        rgba(255,255,255,.6);
+}
+
+.full-visual-content h2 {
+    margin-top: 20px;
+
+    font-size:
+        clamp(50px, 8vw, 130px);
+
+    font-weight: 300;
+
+    letter-spacing: -.07em;
+
+    line-height: .85;
+}
+
+.floating-card {
+    position: absolute;
+
+    right: 8vw;
+
+    bottom: 10vh;
+
+    width: 260px;
+
+    padding: 25px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    backdrop-filter:
+        blur(20px);
+
+    z-index: 3;
+}
+
+.floating-card span {
+    display: block;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color:
+        var(--electric);
+
+    margin-bottom: 20px;
+}
+
+.floating-card p {
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    color:
+        rgba(255,255,255,.65);
+}
+
+
+/* =========================================================
+   NÚMEROS
+========================================================= */
+
+.numbers {
+    padding:
+        150px 8vw;
+
+    background:
+        #05080e;
+}
+
+.numbers-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    margin-bottom: 100px;
+}
+
+.numbers-header h2 {
+    font-size:
+        clamp(50px, 7vw, 110px);
+
+    font-weight: 300;
+
+    letter-spacing: -.07em;
+
+    line-height: .85;
+}
+
+.numbers-header p {
+    width: 300px;
+
+    color:
+        rgba(255,255,255,.45);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+.number-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    border-top:
+        1px solid var(--line);
+}
+
+.number-item {
+    padding:
+        50px 25px;
+
+    border-right:
+        1px solid var(--line);
+
+    transition:
+        .7s ease;
+}
+
+.number-item:first-child {
+    padding-left: 0;
+}
+
+.number-item:last-child {
+    border-right: none;
+}
+
+.number-item:hover {
+    transform:
+        translateY(-10px);
+}
+
+.number-item strong {
+    display: block;
+
+    font-size:
+        clamp(45px,6vw,85px);
+
+    font-weight: 300;
+
+    color:
+        var(--electric);
+
+    letter-spacing:
+        -.07em;
+}
+
+.number-item span {
+    display: block;
+
+    margin-top: 15px;
+
+    color:
+        rgba(255,255,255,.4);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   MANIFESTO
+========================================================= */
+
+.statement {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 10vw;
+
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(23,105,210,.3),
+            transparent 35%
+        ),
+
+        #07111f;
+}
+
+.statement h2 {
+    max-width: 1200px;
+
+    font-size:
+        clamp(55px, 8vw, 135px);
+
+    font-weight: 300;
+
+    line-height: .9;
+
+    letter-spacing: -.07em;
+}
+
+.statement h2 span {
+    color:
+        var(--electric);
+}
+
+.statement h2 em {
+    font-family:
+        "Playfair Display",
+        serif;
+
+    color:
+        rgba(255,255,255,.4);
+}
+
+
+/* =========================================================
+   PRINCÍPIOS
+========================================================= */
+
+.principles {
+    padding:
+        150px 8vw;
+
+    background:
+        #f2eee6;
+
+    color:
+        #0a1425;
+}
+
+.principles-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 100px;
+}
+
+.principles h2 {
+    font-size:
+        clamp(55px,7vw,105px);
+
+    font-weight: 300;
+
+    line-height: .85;
+
+    letter-spacing: -.07em;
+}
+
+.principles-intro {
+    width: 330px;
+
+    color:
+        #676b72;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.principle-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   CARDS CLICÁVEIS
+========================================================= */
+
+.principle {
+    min-height: 400px;
+
+    padding: 40px;
+
+    border:
+        1px solid
+        rgba(10,20,37,.12);
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        .6s cubic-bezier(.2,.8,.2,1);
+
+    text-decoration: none;
+
+    color: inherit;
+
+    display: block;
+
+    cursor: pointer;
+}
+
+.principle:hover {
+    background:
+        #0a1425;
+
+    color: white;
+
+    transform:
+        translateY(-15px);
+}
+
+.principle-number {
+    color:
+        var(--blue);
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+.principle h3 {
+    position: absolute;
+
+    left: 40px;
+
+    bottom: 90px;
+
+    font-size: 32px;
+
+    font-weight: 400;
+
+    letter-spacing: -.04em;
+}
+
+.principle p {
+    position: absolute;
+
+    left: 40px;
+
+    right: 40px;
+
+    bottom: 40px;
+
+    color:
+        #72767c;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.principle:hover p {
+    color:
+        rgba(255,255,255,.55);
+}
+
+
+/* =========================================================
+   HISTÓRIA
+========================================================= */
+
+.timeline {
+    padding:
+        150px 8vw;
+
+    background:
+        #05080e;
+}
+
+.timeline-title {
+    font-size:
+        clamp(55px,8vw,120px);
+
+    font-weight: 300;
+
+    letter-spacing: -.07em;
+
+    line-height: .85;
+
+    margin-bottom: 130px;
+}
+
+.timeline-list {
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+.timeline-item {
+    display: grid;
+
+    grid-template-columns:
+        150px 1fr;
+
+    padding:
+        50px 0;
+
+    border-top:
+        1px solid var(--line);
+
+    transition:
+        .7s ease;
+}
+
+.timeline-item:hover {
+    padding-left: 15px;
+}
+
+.timeline-year {
+    color:
+        var(--electric);
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+}
+
+.timeline-content h3 {
+    font-size: 34px;
+
+    font-weight: 400;
+
+    margin-bottom: 15px;
+}
+
+.timeline-content p {
+    color:
+        rgba(255,255,255,.45);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    max-width: 650px;
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.final {
+    min-height:
+        100vh;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    text-align:
+        center;
+
+    padding:
+        10vw;
+
+    background:
+        #f2eee6;
+
+    color:
+        #091426;
+}
+
+.final small {
+    font-size:
+        9px;
+
+    letter-spacing:
+        4px;
+
+    color:
+        var(--blue);
+}
+
+.final h2 {
+    margin-top:
+        30px;
+
+    font-size:
+        clamp(55px,9vw,140px);
+
+    font-weight:
+        300;
+
+    letter-spacing:
+        -.08em;
+
+    line-height:
+        .85;
+}
+
+.final h2 em {
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-style:
+        italic;
+
+    color:
+        var(--blue);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding:
+        70px 8vw 30px;
+
+    background:
+        #03060b;
+}
+
+.footer-main {
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    padding-bottom:
+        70px;
+}
+
+.footer-logo {
+    font-size:
+        25px;
+
+    letter-spacing:
+        3px;
+}
+
+.footer-location {
+    color:
+        rgba(255,255,255,.4);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.8;
+}
+
+.footer-bottom {
+    padding-top:
+        25px;
+
+    border-top:
+        1px solid var(--line);
+
+    color:
+        rgba(255,255,255,.25);
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        1px;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media(max-width: 900px) {
+
+    .menu {
+        display: none;
+    }
+
+    .hero {
+        min-height: 750px;
+    }
+
+    .hero-title {
+        font-size: 62px;
+    }
+
+    .hero-description {
+        width: 280px;
+    }
+
+    .intro {
+        grid-template-columns: 1fr;
+
+        padding:
+            120px 7vw;
+    }
+
+    .number-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .number-item {
+        border-bottom:
+            1px solid var(--line);
+    }
+
+    .principles-top {
+        display: block;
+    }
+
+    .principles-intro {
+        margin-top: 30px;
+    }
+
+    .principle-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-item {
+        grid-template-columns:
+            80px 1fr;
+    }
+
+    .footer-main {
+        display: block;
+    }
+
+    .footer-location {
+        margin-top: 30px;
+    }
+
+    .cursor,
+    .cursor-ring {
+        display: none;
+    }
+
+}
+
+@media(max-width: 500px) {
+
+    header {
+        height: 70px;
+    }
+
+    .hero {
+        min-height: 680px;
+    }
+
+    .hero-title {
+        font-size: 48px;
+    }
+
+    .hero-meta {
+        font-size: 6px;
+    }
+
+    .hero-footer {
+        display: block;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    .number-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .number-item {
+        padding:
+            40px 0;
+    }
+
+    .statement h2 {
+        font-size: 55px;
+    }
+
+    .timeline-item {
+        grid-template-columns:
+            60px 1fr;
+    }
+
+    .timeline-content h3 {
+        font-size: 25px;
+    }
+
+    .floating-card {
+        width: 220px;
+
+        right: 6vw;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     CURSOR
+========================================================= -->
+
+<div class="cursor"></div>
+
+<div class="cursor-ring"></div>
+
+
+<!-- =========================================================
+     MENU
+========================================================= -->
+
+<header>
+
+<a href="#inicio" class="logo">
+
+    JOSÉ DE ALENCAR
+
+    <span>
+        ESCOLA ESTADUAL
+    </span>
+
+</a>
+
+
+<nav class="menu">
+
+    <a href="#escola">
+        ESCOLA
+    </a>
+
+    <a href="#proposito">
+        PROPÓSITO
+    </a>
+
+    <a href="#historia">
+        HISTÓRIA
+    </a>
+
+    <a href="#contato">
+        CONTATO
+    </a>
+
+    <a href="#contato" class="menu-circle">
+        ↗
+    </a>
+
+</nav>
+
+</header>
+
+
+<!-- =========================================================
+     PRIMEIRA PÁGINA
+========================================================= -->
+
+<section class="hero" id="inicio">
+
+
+<video
+    class="hero-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto">
+
+    <source
+        src="./imagens/imagens_escola.mp4"
+        type="video/mp4">
+
+    Seu navegador não suporta vídeos HTML5.
+
+</video>
+
+
+<div class="hero-video-overlay"></div>
+
+
+<div class="hero-glow"></div>
+
+
+<main class="hero-content">
+
+
+<div class="hero-meta">
+
+    <span>
+        MACHACALIS · MINAS GERAIS
+    </span>
+
+
+    <span class="status">
+
+        <i class="status-dot"></i>
+
+        EDUCAÇÃO · FUTURO
+
+    </span>
+
+</div>
+
+
+<h1 class="hero-title">
+
+    <span class="line">
+        O
+    </span>
+
+    <span class="line light">
+        futuro
+    </span>
+
+    <span class="line italic">
+        começa.
+    </span>
+
+</h1>
+
+
+<div class="hero-footer">
+
+
+<p class="hero-description">
+
+    Escola Estadual José de Alencar.
+
+    Um espaço onde conhecimento,
+    identidade e novas possibilidades
+    encontram-se todos os dias.
+
+</p>
+
+
+<div class="scroll-indicator">
+
+    SCROLL
+
+    <div class="scroll-line"></div>
+
+</div>
+
+
+</div>
+
+
+</main>
+
+</section>
+
+
+<!-- =========================================================
+     ESCOLA
+========================================================= -->
+
+<section class="intro" id="escola">
+
+
+<div>
+
+    <span class="intro-number">
+        01 / IDENTIDADE
+    </span>
+
+
+    <h2>
+
+        Mais que
+        <br>
+
+        uma escola.
+
+        <br>
+
+        <em>
+            Um começo.
+        </em>
+
+    </h2>
+
+</div>
+
+
+<div class="intro-text">
+
+    <p>
+
+        A
+        <strong>
+            Escola Estadual José de Alencar
+        </strong>
+        faz parte da comunidade de
+        Machacalis, Minas Gerais.
+
+    </p>
+
+
+    <p>
+
+        É um espaço de aprendizado,
+        convivência, descobertas e
+        construção de novas possibilidades.
+
+    </p>
+
+
+    <p>
+
+        Aqui, cada estudante traz consigo
+        uma história, uma identidade e
+        sonhos que podem ganhar novos
+        caminhos através da educação.
+
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     DESTAQUE
+========================================================= -->
+
+<section class="full-visual">
+
+
+<div class="full-visual-image"></div>
+
+
+<div class="full-visual-content">
+
+    <small>
+        NOSSA COMUNIDADE
+    </small>
+
+
+    <h2>
+
+        Pessoas.
+
+        <br>
+
+        Histórias.
+
+        <br>
+
+        Futuro.
+
+    </h2>
+
+</div>
+
+
+<div class="floating-card">
+
+    <span>
+        JOSÉ DE ALENCAR
+    </span>
+
+
+    <p>
+
+        Uma comunidade escolar construída
+        através de encontros, conhecimento
+        e experiências.
+
+    </p>
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     NÚMEROS
+========================================================= -->
+
+<section class="numbers">
+
+
+<div class="numbers-header">
+
+
+<h2>
+
+    Uma ideia.
+
+    <br>
+
+    Muitas
+
+    <br>
+
+    possibilidades.
+
+</h2>
+
+
+<p>
+
+    A educação não se resume a números.
+
+    Mas cada número pode representar
+    uma pessoa, uma história e uma nova
+    possibilidade.
+
+</p>
+
+
+</div>
+
+
+<div class="number-grid">
+
+
+<div class="number-item">
+
+    <strong>
+        01
+    </strong>
+
+    <span>
+        COMUNIDADE ESCOLAR
+    </span>
+
+</div>
+
+
+<div class="number-item">
+
+    <strong>
+        ∞
+    </strong>
+
+    <span>
+        POSSIBILIDADES
+    </span>
+
+</div>
+
+
+<div class="number-item">
+
+    <strong>
+        MG
+    </strong>
+
+    <span>
+        MACHACALIS
+    </span>
+
+</div>
+
+
+<div class="number-item">
+
+    <strong>
+        100%
+    </strong>
+
+    <span>
+        FUTURO
+    </span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     PROPÓSITO
+========================================================= -->
+
+<section class="statement" id="proposito">
+
+
+<h2>
+
+    Educação é aquilo
+    que transforma
+
+    <span>
+        possibilidade
+    </span>
+
+    em
+
+    <em>
+        futuro.
+    </em>
+
+</h2>
+
+
+</section>
+
+
+<!-- =========================================================
+     PRINCÍPIOS
+========================================================= -->
+
+<section class="principles">
+
+
+<div class="principles-top">
+
+
+<h2>
+
+    O que
+    <br>
+
+    nos move.
+
+</h2>
+
+
+<p class="principles-intro">
+
+    Uma escola também é feita de
+    valores, relações e experiências
+    que permanecem muito depois
+    do fim de uma aula.
+
+</p>
+
+
+</div>
+
+
+<div class="principle-grid">
+
+
+<!-- =====================================================
+     CONHECIMENTO
+===================================================== -->
+
+<a href="conhecimento.html" class="principle">
+
+
+<span class="principle-number">
+    01
+</span>
+
+
+<h3>
+    Conhecimento
+</h3>
+
+
+<p>
+
+    Curiosidade, pensamento crítico,
+    criatividade e vontade de aprender.
+
+</p>
+
+
+</a>
+
+
+<!-- =====================================================
+     COMUNIDADE
+===================================================== -->
+
+<a href="comunidade.html" class="principle">
+
+
+<span class="principle-number">
+    02
+</span>
+
+
+<h3>
+    Comunidade
+</h3>
+
+
+<p>
+
+    Escola, estudantes, professores,
+    famílias e comunidade caminhando
+    juntos.
+
+</p>
+
+
+</a>
+
+
+<!-- =====================================================
+     FUTURO
+===================================================== -->
+
+<a href="futuro.html" class="principle">
+
+
+<span class="principle-number">
+    03
+</span>
+
+
+<h3>
+    Futuro
+</h3>
+
+
+<p>
+
+    Preparar pessoas para imaginar,
+    criar e construir novas
+    possibilidades.
+
+</p>
+
+
+</a>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     HISTÓRIA
+========================================================= -->
+
+<section class="timeline" id="historia">
+
+
+<h2 class="timeline-title">
+
+    Uma história
+
+    <br>
+
+    em movimento.
+
+</h2>
+
+
+<div class="timeline-list">
+
+
+<div class="timeline-item">
+
+
+<div class="timeline-year">
+    01
+</div>
+
+
+<div class="timeline-content">
+
+
+<h3>
+    Uma escola dentro
+    da comunidade
+</h3>
+
+
+<p>
+
+    A Escola Estadual José de Alencar
+    representa um espaço de encontro
+    e educação para a comunidade de
+    Machacalis.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+<div class="timeline-item">
+
+
+<div class="timeline-year">
+    02
+</div>
+
+
+<div class="timeline-content">
+
+
+<h3>
+    Pessoas que deixam marcas
+</h3>
+
+
+<p>
+
+    Cada geração de estudantes,
+    educadores e famílias contribui
+    para construir a identidade
+    da escola.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+<div class="timeline-item">
+
+
+<div class="timeline-year">
+    03
+</div>
+
+
+<div class="timeline-content">
+
+
+<h3>
+    O próximo capítulo
+</h3>
+
+
+<p>
+
+    O futuro continua sendo escrito
+    diariamente através da educação,
+    das experiências e dos sonhos
+    de cada estudante.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL
+========================================================= -->
+
+<section class="final" id="contato">
+
+
+<div>
+
+
+<small>
+    ESCOLA ESTADUAL JOSÉ DE ALENCAR
+</small>
+
+
+<h2>
+
+    O futuro
+
+    <br>
+
+    começa
+
+    <em>
+        aqui.
+    </em>
+
+</h2>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     RODAPÉ
+========================================================= -->
+
+<footer>
+
+
+<div class="footer-main">
+
+
+<div class="footer-logo">
+
+    JOSÉ DE ALENCAR
+
+</div>
+
+
+<div class="footer-location">
+
+    Escola Estadual José de Alencar
+
+    <br>
+
+    Machacalis · Minas Gerais
+
+    <br>
+
+    Brasil
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+    © 2026 Escola Estadual José de Alencar.
+    Todos os direitos reservados.
+
+</div>
+
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   CURSOR
+========================================================= */
+
+const cursor =
+    document.querySelector(".cursor");
+
+const ring =
+    document.querySelector(".cursor-ring");
+
+let mouseX = 0;
+let mouseY = 0;
+
+let ringX = 0;
+let ringY = 0;
+
+
+document.addEventListener(
+    "mousemove",
+    function(event) {
+
+        mouseX = event.clientX;
+
+        mouseY = event.clientY;
+
+
+        if (cursor) {
+
+            cursor.style.transform =
+                `translate(
+                    ${mouseX}px,
+                    ${mouseY}px
+                )`;
+
+        }
+
+    }
+);
+
+
+function animateCursor() {
+
+    ringX +=
+        (mouseX - ringX) * .12;
+
+    ringY +=
+        (mouseY - ringY) * .12;
+
+
+    if (ring) {
+
+        ring.style.transform =
+            `translate(
+                ${ringX - 20}px,
+                ${ringY - 20}px
+            )`;
+
+    }
+
+
+    requestAnimationFrame(
+        animateCursor
+    );
+
+}
+
+
+animateCursor();
+
+
+/* =========================================================
+   VÍDEO PRINCIPAL
+========================================================= */
+
+const heroVideo =
+    document.querySelector(
+        ".hero-video"
+    );
+
+
+/* =========================================================
+   VERIFICAÇÃO DE ERRO DO VÍDEO
+========================================================= */
+
+if (heroVideo) {
+
+    heroVideo.addEventListener(
+        "error",
+        function() {
+
+            console.error(
+                "Não foi possível carregar o vídeo."
+            );
+
+            console.error(
+                "Verifique se o arquivo existe em: ./imagens/imagens_escola.mp4"
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   EFEITO DE PARALLAX
+========================================================= */
+
+window.addEventListener(
+    "scroll",
+    function() {
+
+        const scroll =
+            window.scrollY;
+
+
+        if (heroVideo) {
+
+            heroVideo.style.transform =
+                `scale(1.05)
+                 translateY(
+                    ${scroll * .08}px
+                 )`;
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   MOVIMENTO DO VÍDEO COM O MOUSE
+========================================================= */
+
+document.addEventListener(
+    "mousemove",
+    function(event) {
+
+        if (!heroVideo) {
+            return;
+        }
+
+
+        const x =
+            (
+                event.clientX /
+                window.innerWidth -
+                .5
+            ) * 2;
+
+
+        const y =
+            (
+                event.clientY /
+                window.innerHeight -
+                .5
+            ) * 2;
+
+
+        heroVideo.style.marginLeft =
+            `${x * 4}px`;
+
+
+        heroVideo.style.marginTop =
+            `${y * 4}px`;
+
+    }
+);
+
+
+/* =========================================================
+   EFEITO NO MENU
+========================================================= */
+
+document
+.querySelectorAll(".menu a")
+.forEach(
+    function(link) {
+
+        link.addEventListener(
+            "mouseenter",
+            function() {
+
+                if (ring) {
+
+                    ring.style.width =
+                        "70px";
+
+                    ring.style.height =
+                        "70px";
+
+                }
+
+            }
+        );
+
+
+        link.addEventListener(
+            "mouseleave",
+            function() {
+
+                if (ring) {
+
+                    ring.style.width =
+                        "40px";
+
+                    ring.style.height =
+                        "40px";
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   AUTOPLAY DO VÍDEO
+========================================================= */
+
+window.addEventListener(
+    "load",
+    function() {
+
+        if (!heroVideo) {
+            return;
+        }
+
+        /*
+         * O vídeo principal precisa estar sem som
+         * para o navegador permitir autoplay.
+         */
+
+        heroVideo.muted = true;
+
+        heroVideo.setAttribute(
+            "muted",
+            ""
+        );
+
+        heroVideo.setAttribute(
+            "playsinline",
+            ""
+        );
+
+
+        function iniciarVideo() {
+
+            const promessa =
+                heroVideo.play();
+
+
+            if (promessa !== undefined) {
+
+                promessa.catch(
+                    function() {
+
+                        console.log(
+                            "O navegador bloqueou o autoplay."
+                        );
+
+                    }
+                );
+
+            }
+
+        }
+
+
+        /*
+         * Se o vídeo já estiver carregado,
+         * inicia imediatamente.
+         */
+
+        if (heroVideo.readyState >= 2) {
+
+            iniciarVideo();
+
+        }
+
+        else {
+
+            heroVideo.addEventListener(
+                "loadeddata",
+                iniciarVideo,
+                {
+                    once: true
+                }
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   ANIMAÇÃO DAS SEÇÕES
+========================================================= */
+
+const observer =
+    new IntersectionObserver(
+        function(entries) {
+
+            entries.forEach(
+                function(entry) {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target.style.opacity =
+                            "1";
+
+                        entry.target.style.transform =
+                            "translateY(0)";
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: .15
+        }
+    );
+
+
+document
+.querySelectorAll(
+    ".timeline-item, .principle, .number-item"
+)
+.forEach(
+    function(element) {
+
+        element.style.opacity =
+            "0";
+
+        element.style.transform =
+            "translateY(40px)";
+
+        element.style.transition =
+            "1s ease";
+
+
+        observer.observe(element);
+
+    }
+);
+
+
+</script>
+
+
+</body>
+
+</html>
+```
